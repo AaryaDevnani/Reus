@@ -26,7 +26,8 @@ nav .logo {
     font-size: 27px;
     font-weight: 600;
     line-height: 70px;
-    padding-left: 60px;
+    padding-left: 40px;
+    padding-bottom: 10px;
 }
 nav ul {
     padding: 0;

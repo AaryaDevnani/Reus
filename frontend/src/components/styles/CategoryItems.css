@@ -40,8 +40,12 @@ box-shadow:  9px 9px 18px #b2d0c6,
     color: black;
        background-color: #def3ec;
 }
+.catLink :hover{
+    color: darkcyan;
+}
 .catLinkActive{
     background-color: #def3ec !important;
+    color: darkcyan;
 }
 
 .itemList{
@@ -68,4 +72,14 @@ box-shadow:  9px 9px 18px #b2d0c6,
 .category{
     color: black;
     text-align: center;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: darkcyan;
+}
+button.modal-btn.butn.btn-primary {
+    margin-top: 20px;
+    background-color: darkcyan !important;
 }

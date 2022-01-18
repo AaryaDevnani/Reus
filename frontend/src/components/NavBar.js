@@ -18,7 +18,7 @@ function NavBar() {
     >
       <nav>
         <div className="logo">
-          <b>REUS</b>
+        <img src='images/Logo.png' alt="logo" width='170px'   />
         </div>
         <label htmlFor="btn" className="fa_icon">
           <FaBars />
@@ -60,11 +60,11 @@ function NavBar() {
               <li>
                 {' '}
                 <NavLink
-                  to="/logout"
+                  to="/categoryItems"
                   className="hoverLine"
                   style={navLinkStyle}
                 >
-                  Logout
+                  Inventory
                 </NavLink>
               </li>
               <li>
@@ -75,6 +75,16 @@ function NavBar() {
                   style={navLinkStyle}
                 >
                   Recipes
+                </NavLink>
+              </li>
+              <li>
+                {' '}
+                <NavLink
+                  to="/logout"
+                  className="hoverLine"
+                  style={navLinkStyle}
+                >
+                  Logout
                 </NavLink>
               </li>
             </>

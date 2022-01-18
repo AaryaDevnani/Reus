@@ -1,9 +1,22 @@
 import React, {useState} from 'react';
 import { useHistory, useLocation , NavLink} from 'react-router-dom';
 import "./styles/AddItem.css";
+import { Modal, Button } from 'react-bootstrap';
 
-const AddItem = () => {
+const AddItem = (props) => {
     return (
+        <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Add Item
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
         <form className='add-form' >
         <div className='loginContainer'>
         <div className='form-contro'>
@@ -36,7 +49,7 @@ const AddItem = () => {
             /> 
         </div>
         <div className='form-contro'>
-            <label className='label'>Category
+            <label className='label'>Category&nbsp;&nbsp;
             <select>
                 <option value="grapefruit">Grapefruit</option>
                 <option value="lime">Lime</option>
@@ -64,6 +77,11 @@ const AddItem = () => {
         </div>
     
     </form>
+    </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
     )
 }
 
