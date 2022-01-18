@@ -1,45 +1,64 @@
-import React, { useEffect, useState } from 'react'
-import "./styles/CategoryItems.css";
+import React, { useEffect, useState } from 'react';
+import './styles/CategoryItems.css';
 import ItemList from './ItemList';
 import CategoryFilter from './CategoryFilter';
-
-
+import { useSelector } from 'react-redux';
 
 function CategoryItem() {
+  const { userId } = useSelector((state) => state.auth);
 
-    useEffect(() => {
-        console.log("here")
-    }, [])
-    
+  const [categories, setCategories] = useState([
+    { title: 'Vegetables', id: 0 },
+    { title: 'Fruits', id: 1 },
+    { title: 'Protein', id: 2 },
+    { title: 'Dairy', id: 3 },
+    { title: 'Oils', id: 4 },
+    { title: 'Beverages', id: 5 },
+    { title: 'Grains', id: 6 },
+    { title: 'Other', id: 7 }
+  ]);
+  const [items, setItems] = useState([]);
 
-    const [categories, setCategories] = useState([
-        { title: 'First Category', id: 0 },
-        { title: 'Second Category', id: 1 },
-        { title: 'Third Category', id: 2 }
-    ])
-    const [items, setItems] = useState([
-        { title: 'Item 1', id: 0, image:'images/Image1.jpg', date:'24/12/22',  category: { id: 0 } },
-        { title: 'Item 2', id: 1, image:'images/Image1.jpg',date:'24/12/22', category: { id: 0 } },
-        { title: 'Item 3', id: 2,date:'24/12/22', category: { id: 0 } },
-        { title: 'Item 4', id: 3,date:'24/12/22', image:'images/Image1.jpg', category: { id: 1 } },
-        { title: 'Item 5', id: 4,date:'24/12/22', category: { id: 1 } },
-        { title: 'Item 6', id: 5,date:'24/12/22', image:'images/Image1.jpg', category: { id: 2 } },
-        { title: 'Item 7', id: 6,date:'24/12/22', image:'images/Image1.jpg', category: { id: 2 } }
-    ])
+  const [selectedCategoryId, setSelectedCategoryId] = useState(
+    categories[0].id
+  );
 
-    const [selectedCategoryId, setSelectedCategoryId] = useState(categories[0].id)
+  const onSelectCategory = (id) => {
+    setSelectedCategoryId(id);
+  };
 
-    const onSelectCategory = (id) => {
-        setSelectedCategoryId(id)
+  const selectedCategory = categories.filter(
+    (category) => category.id === selectedCategoryId
+  )[0];
+
+  const getItems = async () => {
+    const response = await fetch(`/api/items`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        UserId: userId
+      }
+    });
+    const data = await response.json();
+    if (!data.error === '') return data.error;
+    else {
+      setItems(data.items);
     }
-    
-    const selectedCategory = categories.filter(category => category.id === selectedCategoryId)[0]
-    
-    return (
-        <div className='categoryFilter'>
-            <CategoryFilter  categories={categories} selectedCategory={selectedCategory} onSelectCategory={onSelectCategory}  />
-            <ItemList   items={items} selectedCategory={selectedCategory} />
-        </div>
-    )
+  };
+
+  useEffect(() => {
+    getItems();
+  }, []);
+
+  return (
+    <div className="categoryFilter">
+      <CategoryFilter
+        categories={categories}
+        selectedCategory={selectedCategory}
+        onSelectCategory={onSelectCategory}
+      />
+      <ItemList items={items} selectedCategory={selectedCategory} />
+    </div>
+  );
 }
-export default CategoryItem
+export default CategoryItem;

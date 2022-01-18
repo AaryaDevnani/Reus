@@ -10,6 +10,7 @@ import Dashboard from "./components/Dashboard";
 import Recipes from "./components/Recipes";
 import CategoryItems from './components/CategoryItems';
 import ShoppingList from './components/ShoppingList';
+import AddItem from './components/AddItem';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route exact path='/recipes' element={<Recipes/>} />
               <Route exact path='/categoryItems' element={<CategoryItems/>} />
               <Route exact path='/shoppingList' element={<ShoppingList/>} />
+              <Route exact path='/addItem' element={<AddItem/>} />
 
           </Routes>
         </header>
