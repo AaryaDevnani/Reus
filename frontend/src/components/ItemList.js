@@ -40,9 +40,17 @@ function ItemList({ items, selectedCategory }) {
           <div>
             <h3 className="itemName"> {item.name} </h3>
             <p className="itemInfo">
-              Exp. Date : {new Date(item.expiryDate).getUTCMonth() + 1}
-            </p>
+              Exp. Date : {new Date(item.expiryDate).getUTCDate()}/{new Date(item.expiryDate).getUTCMonth() + 1}/{new Date(item.expiryDate).getUTCFullYear()} <br/>
+              Quantity : {item.quantity} <br/>
+              {item.calories && (
+                 <>Calories : {item.calories}</>
+              )}
+               </p>
           </div>
+          {/* <hr />
+          <div>
+            <h4>Byproducts</h4>
+          </div> */}
         </div>
       ))}
     </div>
