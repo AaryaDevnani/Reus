@@ -1,4 +1,3 @@
-const { time } = require("console");
 const express = require("express");
 const app = express();
 require("dotenv").config();
@@ -32,10 +31,12 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 const userRoute = require("./Routes/Auth");
 const itemRoute = require("./Routes/Item");
+const groceryItemRoute = require("./Routes/GroceyItem");
 
 // Routes middlewares
 app.use("/api/user", userRoute);
 app.use("/api/items", itemRoute);
+app.use("/api/groceries", groceryItemRoute);
 
 const checkExpirations = require("./Helpers/checkExpirations");
 
