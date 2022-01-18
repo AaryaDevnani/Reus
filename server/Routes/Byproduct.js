@@ -17,7 +17,29 @@ router.post("/",async (req,res)=>{
         res.status(400).json({ error });
     }
 })
-// router.get("/",async (req,res){
-
-// })
+router.get("/", async (req, res) => {
+    const { name } = req.query;
+    if (name) {
+      try {
+        const item = await Byproduct.find({itemName:name});
+        let error = "";
+        if (!item) {
+          error = "No item found";
+        }
+        return res.status(200).json({ error, item });
+      } catch (error) {
+        console.log({ error });
+        return res.status(400).json({ error });
+      }
+    }
+    
+        try{
+            const items = await Byproduct.find({})
+            return res.status(200).json({error: '', items})
+        }catch(error){
+            console.log({ error });
+            return res.status(400).json({ error });
+        }
+    
+  });
 module.exports = router;
