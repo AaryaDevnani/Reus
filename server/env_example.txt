@@ -1,0 +1,2 @@
+DB_CONNECTION_STRING=your_connection_string
+SECRET_ACCESS_TOKEN=your_secret_access_token
