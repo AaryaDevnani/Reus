@@ -5,29 +5,67 @@
 
 .catItems{
     color: black !important;
+    min-height: 50px;
+    margin: 20px 10px;
+  padding: 30px;
+  display: flex;
+  border-radius: 20px;
+background: #cff2e6;
+box-shadow:  9px 9px 18px #b2d0c6,
+           -9px -9px 18px #ecffff;
+
 }
 
 .categories{
     border-radius: 43px;
-    background: #def3ec;
+ 
     box-shadow:  14px 14px 21px #aecbc1,
              -14px -14px 21px #f0ffff;
              z-index: 1;
     font-size: 17px;
-    margin-left: 18%;
+    background: #def3ec;
     padding: 10px 20px;
     width: 100%;
     margin-top: 20px ;
+    margin-right: 20px;
 }
 
 .categoryList{
    float: left;
+   margin-left: 20px;
+   margin-top: 20px;
 }
 
 .catLink{
     color: black;
+       background-color: #def3ec;
+}
+.catLinkActive{
+    background-color: #def3ec !important;
 }
 
 .itemList{
    color: black; 
+   margin-left: 30px;
+   margin-top: 10px;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.itemImage{
+    border-radius: 60%;
+    margin-right: 10px;
+}
+.itemName{
+    padding: 2px;
+    margin: 0;
+}
+.itemInfo{
+    padding: 0px;
+    margin: 2px;
+    font-size: 15px;
+}
+.category{
+    color: black;
+    text-align: center;
 }
