@@ -1,0 +1,181 @@
+
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: #fafafa !important;
+  }
+
+  .LoginPage{
+    display: flex;
+    z-index: 1;
+  }
+  .info{
+    width: 40%;
+    margin-left: 10%;
+    margin-top: 130px;
+  }
+  .title{
+    color: #338a6d;
+    text-align: left;
+    font-size: 50px;
+    margin: 0;
+  }
+  .description{
+    color: black;
+    text-align: left;
+  }
+  .login-add-form {
+    margin-bottom: 30px;
+    margin-top: 100px ;
+    margin-left: 8%;
+    padding-bottom: 10px;
+    width: 30%;
+    height: 60%;
+    border-radius: 43px;
+    background: #def3ec;
+    box-shadow:  14px 14px 21px #aecbc1,
+             -14px -14px 21px #f0ffff;
+             z-index: 1;
+    }
+  .loginContainer {
+    margin: 30px auto;
+    margin-top: 5px;
+    overflow: auto;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+
+  
+  .loginBtn {
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    border: #f2f2f2;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 40px;
+    font-family: inherit;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+  }
+
+  
+  
+  .form-contro {
+    margin: 20px 20px;
+  }
+  
+  .form-contro label {
+    display: block;
+    padding-left: 7px;
+  }
+  
+  .form-contro input {
+    width: 95%;
+    height: 40px;
+    margin: 5px;
+    padding: 3px 7px;
+    font-size: 17px;
+    border-radius: 10px;
+    border: 1px;
+  }
+  
+  .form-contro-check {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .form-contro-check label {
+    flex: 1;
+  }
+  
+  .form-contro-check input {
+    flex: 2;
+    height: 20px;
+  }
+  
+  footer {
+    margin-top: 30px;
+    text-align: center;
+  }
+  .label {
+    font-size: 17px;
+    color: #000;
+    text-align: left;
+  }
+
+  input.form-control.border.no-shadow.no-rounded {
+    top: 8px;
+  }
+  button.btn.btn-success.no-rounded {
+    margin-top: 2px !important;
+    height: 100%;
+    border-radius: 0px;
+  }
+  input.form-control.border.no-shadow.no-rounded {
+    top: 2px;
+    font-size: 30px;
+  }
+  .butn {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+  }
+  
+  
+  .butn:focus {
+    outline: none;
+  }
+  .butn:hover {
+    color: #5DBC9D;
+  }
+  
+  .butn:active {
+    transform: scale(0.98);
+  }
+  
+  .butn-block {
+    display: block;
+    width: 86%;
+    align-items: center;
+    margin-left: 7%;
+    border-radius: 10px !important;
+  }
+  .go-to-register{
+    color: black;
+    font-size: 15px;
+    padding-top: 4px;
+    font-weight: 400;
+  }
+  .go-to-register:hover{
+    color: #338a6d;
+  }
+.second-wave{
+  z-index: -1;
+    margin-top: 21px;
+    margin-bottom: -40%;
+}
+
+  .wave{
+    z-index: -1;
+    margin-top: -50%;
+  }
+

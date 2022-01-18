@@ -1,0 +1,33 @@
+.item{
+    border-radius: 25px;
+    background: #cff2e6;
+    box-shadow:  9px 9px 18px #b0cec4,
+             -9px -9px 18px #eeffff;
+    /* min-width: 500px;
+    min-height:250px; */
+    height: 250px;
+    width: 750px;
+    margin-top:20px;
+    margin-bottom: 10px;
+    color: black;             
+}
+.invItems{
+    border-radius: 25px;
+    background: #cff2e6;
+    box-shadow:  9px 9px 18px #b0cec4,
+             -9px -9px 18px #eeffff;
+    color: black; 
+    padding-bottom: 20px;
+    margin-top:20px;        
+}
+.pill{
+  color: black;  
+  padding: 5px 5px;
+  font-size: 10px;
+  background-color: transparent;
+  border: 1px solid black;
+  text-align: center;
+  /* margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;*/
+}

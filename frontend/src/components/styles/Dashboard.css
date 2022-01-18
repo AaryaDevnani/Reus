@@ -1,0 +1,33 @@
+
+.dashboardPage{
+    color: black;
+}
+.flashImg{
+    border-radius: 60%;
+    margin-right: 10px;
+  }
+  .flashName{
+    padding: 2px;
+    margin: 0;
+  }
+  .flashData{
+    padding: 0px;
+    margin: 2px;
+    font-size: 15px;
+  }
+  .list-item{
+    min-height: 50px;
+    margin: 10px 10px;
+  padding: 30px;
+  display: flex;
+  border-radius: 20px;
+background: #cff2e6;
+box-shadow:  9px 9px 18px #b2d0c6,
+           -9px -9px 18px #ecffff;
+  }
+  .list-items{
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    margin: auto;
+  }
