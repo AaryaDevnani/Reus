@@ -7,7 +7,6 @@ import { Modal, Button } from 'react-bootstrap';
 import AddItem from './AddItem';
 
 function CategoryItem() {
-   
   const { userId } = useSelector((state) => state.auth);
 
   const [categories, setCategories] = useState([
@@ -21,6 +20,7 @@ function CategoryItem() {
     { title: 'Other', id: 7 }
   ]);
   const [items, setItems] = useState([]);
+  const [byProducts, setByProducts] = useState([]);
 
   const [selectedCategoryId, setSelectedCategoryId] = useState(
     categories[0].id
@@ -33,6 +33,20 @@ function CategoryItem() {
   const selectedCategory = categories.filter(
     (category) => category.id === selectedCategoryId
   )[0];
+
+  const getByProducts = async () => {
+    const response = await fetch(`/api/byproduct`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const data = await response.json();
+    if (!data.error === '') return data.error;
+    else {
+      setByProducts(data.items);
+    }
+  };
 
   const getItems = async () => {
     const response = await fetch(`/api/items`, {
@@ -51,17 +65,21 @@ function CategoryItem() {
 
   useEffect(() => {
     getItems();
+    getByProducts();
   }, []);
 
   return (
     <div className="categoryFilter">
-       
       <CategoryFilter
         categories={categories}
         selectedCategory={selectedCategory}
         onSelectCategory={onSelectCategory}
       />
-      <ItemList items={items} selectedCategory={selectedCategory} />
+      <ItemList
+        items={items}
+        byProducts={byProducts}
+        selectedCategory={selectedCategory}
+      />
     </div>
   );
 }
