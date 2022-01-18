@@ -25,7 +25,7 @@ function ShoppingList() {
                 <div>
                 <h3 className='flashName'>Burger</h3> 
                 <p className='flashData'><QuantityPicker min={0} smooth/></p>
-                <Button variant='outline-dark' className='btn'>Delete </Button>
+                <Button variant='outline-dark' className='btn1'>Delete </Button>
                
                 </div>
             </div>
@@ -33,49 +33,49 @@ function ShoppingList() {
                 <div>
                 <h3 className='flashName'>Burger</h3> 
                 <p className='flashData'><QuantityPicker min={0} smooth/></p>
-                <Button variant='outline-dark' className='btn'>Delete </Button>
+                <Button variant='outline-dark' className='btn1'>Delete </Button>
                 </div>
             </div>
             <div className='list-item'>
                 <div>
                 <h3 className='flashName'>Burger</h3> 
                 <p className='flashData'><QuantityPicker min={0} smooth/></p> 
-                <Button variant='outline-dark' className='btn'>Delete </Button>
+                <Button variant='outline-dark' className='btn1'>Delete </Button>
                 </div> 
             </div>
             <div className='list-item'>
                 <div>
                 <h3 className='flashName'>Burger</h3> 
                 <p className='flashData'><QuantityPicker min={0} smooth/></p> 
-                <Button variant='outline-dark' className='btn'>Delete</Button>
+                <Button variant='outline-dark' className='btn1'>Delete</Button>
                 </div>
             </div>
             <div className='list-item'>
                 <div>
                 <h3 className='flashName'>Burger</h3> 
                 <p className='flashData'><QuantityPicker min={0} smooth/></p>
-                <Button variant='outline-dark' className='btn'>Delete</Button>
+                <Button variant='outline-dark' className='btn1'>Delete</Button>
                 </div>
             </div>
             <div className='list-item'>
                 <div>
                 <h3 className='flashName'>Burger</h3> 
                 <p className='flashData'><QuantityPicker min={0} smooth/></p>
-                <Button variant='outline-dark' className='btn'>Delete</Button>
+                <Button variant='outline-dark' className='btn1'>Delete</Button>
                 </div>
             </div>
             <div className='list-item'>
                 <div>
                 <h3 className='flashName'>Burger</h3> 
                 <p className='flashData'><QuantityPicker min={0} smooth/></p>
-                <Button variant='outline-dark' className='btn'>Delete</Button>
+                <Button variant='outline-dark' className='btn1'>Delete</Button>
                 </div>
             </div>
             <div className='list-item'>
                 <div>
                 <h3 className='flashName'>Burger</h3> 
                 <p className='flashData'><QuantityPicker min={0} smooth/></p>
-                <Button variant='outline-dark' className='btn'>Delete</Button>
+                <Button variant='outline-dark' className='btn1'>Delete</Button>
                 </div>
                 
             </div>
