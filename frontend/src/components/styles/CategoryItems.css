@@ -15,16 +15,25 @@ box-shadow:  9px 9px 18px #b2d0c6,
            -9px -9px 18px #ecffff;
 
 }
+.noCatItems{
+    color: black !important;
+    min-height: 50px;
+    margin: 20px 10px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .categories{
     border-radius: 43px;
- 
+    width: 100%;
     box-shadow:  14px 14px 21px #aecbc1,
              -14px -14px 21px #f0ffff;
              z-index: 1;
     font-size: 17px;
     background: #def3ec;
-    padding: 10px 20px;
+    padding: 10px 50px;
     width: 100%;
     margin-top: 20px ;
     margin-right: 20px;
@@ -80,6 +89,19 @@ a:hover{
     color: darkcyan;
 }
 button.modal-btn.butn.btn-primary {
-    margin-top: 20px;
+    margin-top: 40px;
     background-color: darkcyan !important;
+    margin-left: 0px;
+}
+
+.btn-cards{
+    float: left;
+    align-items: left;
+    justify-content: left;
+
+}
+.addBtn{
+    display: flex;
+  margin-left: 40px ;
+  margin-top: 30px;;
 }
