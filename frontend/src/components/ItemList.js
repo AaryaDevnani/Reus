@@ -10,8 +10,17 @@ function ItemList({ items, selectedCategory }) {
         <div className='itemList' >
             {currentItems.map(i => (
             <div className='catItems' key={i.id}>
-                {i.title}
+                <div className='itemImage'>
+                { i.image ? 
                 <img src={i.image} className='flashImg' alt="abcd" width="120" height="120" />
+                : <p></p>}
+                </div> 
+                <div >
+                   
+                   <h3 className='itemName'> {i.title} </h3>
+                   <p className='itemInfo'>Exp. Date : {i.date}</p>
+
+                </div>
             </div>
         ))}
         </div>
