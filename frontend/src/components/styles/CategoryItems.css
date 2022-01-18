@@ -79,6 +79,7 @@ a{
 a:hover{
     color: darkcyan;
 }
-button.modal-btn.btn.btn-primary {
+button.modal-btn.butn.btn-primary {
     margin-top: 20px;
+    background-color: darkcyan !important;
 }
