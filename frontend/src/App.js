@@ -11,7 +11,7 @@ import Recipes from "./components/Recipes";
 import CategoryItems from './components/CategoryItems';
 import ShoppingList from './components/ShoppingList';
 import AddItem from './components/AddItem';
-
+import Calendar from './components/Calendar';
 function App() {
   return (
     <Router>
@@ -28,6 +28,7 @@ function App() {
               <Route exact path='/categoryItems' element={<CategoryItems/>} />
               <Route exact path='/shoppingList' element={<ShoppingList/>} />
               <Route exact path='/addItem' element={<AddItem/>} />
+              <Route exact path='/calendar' element={<Calendar/>} />
 
           </Routes>
         </header>
