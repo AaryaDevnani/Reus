@@ -19,7 +19,7 @@ const itemSchema = new mongoose.Schema({
     default: 1
   },
   category: {
-    type: Number,
+    type: String,
     required: false
   },
   calories: {
