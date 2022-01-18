@@ -2,7 +2,7 @@
   
   body {
     font-family: "Poppins", sans-serif;
-    background-color: #fafafa !important;
+    background-color: #ffffff !important;
   }
 
   .LoginPage{
@@ -170,12 +170,16 @@
   }
 .second-wave{
   z-index: -1;
-    margin-top: 21px;
-    margin-bottom: -40%;
+  position: absolute;
+  bottom: 0;
+  left:0;
+  margin-bottom: 50px
 }
 
   .wave{
     z-index: -1;
-    margin-top: -50%;
+    position: absolute;
+    bottom: 0;
+    left:0
   }
 

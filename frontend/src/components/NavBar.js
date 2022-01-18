@@ -67,6 +67,16 @@ function NavBar() {
                   Logout
                 </NavLink>
               </li>
+              <li>
+                {' '}
+                <NavLink
+                  to="/recipes"
+                  className="hoverLine"
+                  style={navLinkStyle}
+                >
+                  Recipes
+                </NavLink>
+              </li>
             </>
           )}
         </ul>
