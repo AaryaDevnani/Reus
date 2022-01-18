@@ -18,13 +18,13 @@ function CategoryItem() {
         { title: 'Third Category', id: 2 }
     ])
     const [items, setItems] = useState([
-        { title: 'Item 1', id: 0, image:'images/Image1.jpg',  category: { id: 0 } },
-        { title: 'Item 2', id: 1, image:'images/Image1.jpg', category: { id: 0 } },
-        { title: 'Item 3', id: 2, category: { id: 0 } },
-        { title: 'Item 4', id: 3, image:'images/Image1.jpg', category: { id: 1 } },
-        { title: 'Item 5', id: 4, category: { id: 1 } },
-        { title: 'Item 6', id: 5, image:'images/Image1.jpg', category: { id: 2 } },
-        { title: 'Item 7', id: 6, image:'images/Image1.jpg', category: { id: 2 } }
+        { title: 'Item 1', id: 0, image:'images/Image1.jpg', date:'24/12/22',  category: { id: 0 } },
+        { title: 'Item 2', id: 1, image:'images/Image1.jpg',date:'24/12/22', category: { id: 0 } },
+        { title: 'Item 3', id: 2,date:'24/12/22', category: { id: 0 } },
+        { title: 'Item 4', id: 3,date:'24/12/22', image:'images/Image1.jpg', category: { id: 1 } },
+        { title: 'Item 5', id: 4,date:'24/12/22', category: { id: 1 } },
+        { title: 'Item 6', id: 5,date:'24/12/22', image:'images/Image1.jpg', category: { id: 2 } },
+        { title: 'Item 7', id: 6,date:'24/12/22', image:'images/Image1.jpg', category: { id: 2 } }
     ])
 
     const [selectedCategoryId, setSelectedCategoryId] = useState(categories[0].id)
@@ -37,7 +37,7 @@ function CategoryItem() {
     
     return (
         <div className='categoryFilter'>
-            <CategoryFilter  categories={categories} onSelectCategory={onSelectCategory} />
+            <CategoryFilter  categories={categories} selectedCategory={selectedCategory} onSelectCategory={onSelectCategory}  />
             <ItemList   items={items} selectedCategory={selectedCategory} />
         </div>
     )
