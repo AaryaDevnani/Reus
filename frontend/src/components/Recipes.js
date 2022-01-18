@@ -31,14 +31,20 @@ function Recipes() {
     const appID = 'a670aefe';
     const app_key = '2062231e1e23e9cfc408fa3516285253d8';
     const apiURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${searchFinal}&app_id=${appID}&app_key=%${app_key}`;
-    const response = await fetch(apiURL, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json'
-      }
-    });
-    const data = await response.json();
-    setRecipes(data.hits);
+    try {
+      
+      const response = await fetch(apiURL, {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json'
+        }
+      });
+      const data = await response.json();
+      console.log({data})
+      setRecipes(data.hits);
+    } catch (error) {
+      console.log({error})
+    }
   };
 
   const handleOnChange = (e) => {
@@ -94,10 +100,18 @@ function Recipes() {
             <div className="item">
               <p>{recipe.label}</p>
               <div className="recipeCard">
+                {recipe.images.THUMBNAIL ? (
+
                 <img
                   className="recipeImage"
                   src={recipe.images.THUMBNAIL.url}
                 />
+                ): (<img
+                  className="recipeImage"
+                  src={recipe.image}
+                  height={100}
+                  width={100}
+                />)}
                 <ul>
                   {recipe.ingredients.map((i) => (
                     <li>{i.text}</li>
