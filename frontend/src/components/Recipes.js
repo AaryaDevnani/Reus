@@ -1,9 +1,36 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import "./styles/Recipes.css"
+
 
 function Recipes() {
 
+    const {userId} = useSelector((state) => state.auth);
     const [recipes, setRecipes] = useState([])
+    const [ingredients, setIngredients] = useState([])
+    const [items, setItems] = useState([])
+    let ing = ""
+    const getIngredients = async()=>{
+        const response = await fetch(`/api/items`,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                "UserId": userId
+            },
+        })
+        const data = await response.json()
+        if (!data.error === "") return data.error
+        else{
+            setIngredients(data);
+            for(let i=0;i<data.items.length;i++){
+                ing += data.items[i].name+"%20"
+            }
+            let l = ing.length
+            ing = ing.slice(0,l-3)
+            setItems(ing)
+        }
+    }
+
 
     const getRecipes = async (items) => {
         const appID = "a670aefe"
@@ -20,14 +47,15 @@ function Recipes() {
     }
     
     useEffect(() => {
-        getRecipes("chicken%20potato")
-    }, [])
+        getRecipes(items)
+        getIngredients()
+    }, [items])
     return (
         <div className="recipePage container">
             <div className="input-group">
             <div className="form-outline">
             <input type="search" id="form1" className="form-control" />
-            <label className="form-label" for="form1">Search</label>
+            <label className="form-label">Search</label>
             </div>
             <button type="button" className="btn btn-primary">
             <i className="fas fa-search"></i>

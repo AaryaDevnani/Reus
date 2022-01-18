@@ -6,6 +6,7 @@ const generateNotifications = require("../Helpers/generateNotification");
 
 router.get("/", async (req, res) => {
   const { itemId } = req.query;
+  const {userid} = req.headers
   if (itemId) {
     try {
       const item = await Item.findById(itemId);
@@ -20,7 +21,7 @@ router.get("/", async (req, res) => {
     }
   }
   try {
-    const items = await Item.find();
+    const items = await Item.find({userId: userid});
     res.status(200).json({ error: "", items });
   } catch (error) {
     res.status(400).json({ error });
