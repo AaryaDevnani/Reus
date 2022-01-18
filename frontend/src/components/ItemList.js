@@ -1,30 +1,38 @@
-import React from 'react'
-import "./styles/CategoryItems.css";
+import React from 'react';
+import './styles/CategoryItems.css';
 
 function ItemList({ items, selectedCategory }) {
-    console.log({selectedCategory})
-    const currentItems = items
-        .filter(i => i.category.id === selectedCategory.id)
-        console.log({currentItems})
-    return (
-        <div className='itemList' >
-            {currentItems.map(i => (
-            <div className='catItems' key={i.id}>
-                <div className='itemImage'>
-                { i.image ? 
-                <img src={i.image} className='flashImg' alt="abcd" width="120" height="120" />
-                : <p></p>}
-                </div> 
-                <div >
-                   
-                   <h3 className='itemName'> {i.title} </h3>
-                   <p className='itemInfo'>Exp. Date : {i.date}</p>
-
-                </div>
-            </div>
-        ))}
+  console.log({ selectedCategory });
+  console.log({ items });
+  const currentItems = items.filter(
+    (item) => item.category === selectedCategory.title
+  );
+  return (
+    <div className="itemList">
+      {currentItems.length === 0 && <div>No Items found</div>}
+      {currentItems.map((item) => (
+        <div className="catItems" key={item._id}>
+          <div className="itemImage">
+            {item.imageURL && (
+              <img
+                src={item.imageURL}
+                className="flashImg"
+                alt="abcd"
+                width="120"
+                height="120"
+              />
+            )}
+          </div>
+          <div>
+            <h3 className="itemName"> {item.name} </h3>
+            <p className="itemInfo">
+              Exp. Date : {new Date(item.expiryDate).getUTCMonth() + 1}
+            </p>
+          </div>
         </div>
-    )
+      ))}
+    </div>
+  );
 }
 
-export default ItemList
+export default ItemList;
