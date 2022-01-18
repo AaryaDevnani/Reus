@@ -41,7 +41,7 @@ const AddItem = (props) => {
         <div className='form-contro'>
             <label className='label'>Quantity</label>
             <input
-             type='quantity'  required='required'  
+             type='number'  required='required'  
              placeholder='Enter number of items' 
              name='quantity'     
             //  value={userInput.quantity}
@@ -49,12 +49,16 @@ const AddItem = (props) => {
             /> 
         </div>
         <div className='form-contro'>
-            <label className='label'>Category&nbsp;&nbsp;
+            <label className='label'>Category:&nbsp;&nbsp;
             <select>
-                <option value="grapefruit">Grapefruit</option>
-                <option value="lime">Lime</option>
-                <option selected value="coconut">Coconut</option>
-                <option value="mango">Mango</option>
+                <option selected value="vegetables">Vegetables</option>
+                <option value="fruits">Fruits</option>
+                <option value="protein">Protein</option>
+                <option value="dairy">Dairy</option>
+                <option value="oils">Oils</option>
+                <option value="beverages">Beverages</option>
+                <option value="grains">Grains</option>
+                <option value="other">Other</option>
             </select>
             </label>
             {/* <input
@@ -65,6 +69,7 @@ const AddItem = (props) => {
             //  onChange={handleOnChange}
             />  */}
         </div>
+
         {/* <label className='label'>Category</label>
             <Form.Select aria-label="Default select example">
   <option>Open this select menu</option>
@@ -72,8 +77,12 @@ const AddItem = (props) => {
   <option value="2">Two</option>
   <option value="3">Three</option>
 </Form.Select> */}
-       
-        <input type='submit' className='butn butn-block' value='Add item'/>
+        <div className='form-contro'>
+        <label className='label' for='img' >Select Image:&nbsp;&nbsp;
+        <input type="file" id="img" name="img" accept="image/*"></input>
+        </label>
+        </div>
+        <input type='submit' className='butn butn-block add-item' value='Add item'/>
         </div>
     
     </form>
