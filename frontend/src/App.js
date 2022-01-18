@@ -8,6 +8,7 @@ import Register from './components/Register';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from "./components/Dashboard";
 import Recipes from "./components/Recipes";
+import CategoryItems from './components/CategoryItems';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
               <Route exact path='/recipes' element={<Recipes/>} />
+              <Route exact path='/categoryItems' element={<CategoryItems/>} />
           </Routes>
         </header>
       </div>

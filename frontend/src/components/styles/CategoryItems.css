@@ -1,0 +1,33 @@
+.categoryFilter{
+    display: flex;
+    width: 100%;
+}
+
+.catItems{
+    color: black !important;
+}
+
+.categories{
+    border-radius: 43px;
+    background: #def3ec;
+    box-shadow:  14px 14px 21px #aecbc1,
+             -14px -14px 21px #f0ffff;
+             z-index: 1;
+    font-size: 17px;
+    margin-left: 18%;
+    padding: 10px 20px;
+    width: 100%;
+    margin-top: 20px ;
+}
+
+.categoryList{
+   float: left;
+}
+
+.catLink{
+    color: black;
+}
+
+.itemList{
+   color: black; 
+}

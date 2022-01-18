@@ -31,3 +31,15 @@
   cursor: pointer;
   border-radius: 16px;*/
 }
+.btn{
+  background-color: cadetblue;
+  border: 0px;
+  margin-top: -4px;
+}
+.input-group{
+  margin-left: 40%;
+}
+.form-outline{
+  align-items: center;
+justify-content: center;
+}
