@@ -7,6 +7,8 @@ import { FaSearch } from 'react-icons/fa';
 function Recipes() {
 
     const {userId} = useSelector((state) => state.auth);
+    const [search, setSearch] = useState("Potato")
+    const [searchFinal, setSearchFinal] = useState("Potato")
     const [recipes, setRecipes] = useState([])
     const [ingredients, setIngredients] = useState([])
     const [items, setItems] = useState([])
@@ -36,7 +38,8 @@ function Recipes() {
     const getRecipes = async (items) => {
         const appID = "a670aefe"
         const app_key = "2062231e1e23e9cfc408fa3516285253d8"
-        const apiURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${items}&app_id=${appID}&app_key=%${app_key}`
+        // const apiURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${items}&app_id=${appID}&app_key=%${app_key}`
+        const apiURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${search}&app_id=${appID}&app_key=%${app_key}`
         const response = await fetch(apiURL, {
             method: 'GET',
             headers: {
@@ -47,19 +50,28 @@ function Recipes() {
         setRecipes(data.hits)
     }
 
+    const handleOnChange = (e) => {
+        setSearch(e.target.value)
+    }
+
+    const handleOnClick = () => {
+        setSearchFinal(search)
+    }
+
     useEffect(() => {
         getRecipes(items)
         getIngredients()
-    }, [items])
+    // }, [items])
+    }, [searchFinal])
     return (
         <div className="recipePage container">
             <div className="input-group">
                 <div className="form-outline">
-                    <input type="search" id="form1" className="form-control" />
+                    <input type="search" id="form1" className="form-control" value={search} onChange={handleOnChange} />
                     <label className="form-label" for="form1">Search</label>
                 </div>
                 <div className='search-btn'>
-                    <button type="button" className="btn btn-primary">
+                    <button type="button" className="btn btn-primary" onClick={handleOnClick}>
                         <FaSearch />
                     </button>
                 </div>
