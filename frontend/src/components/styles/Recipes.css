@@ -6,7 +6,7 @@
     /* min-width: 500px;
     min-height:250px; */
     /* height: 250px; */
-    width: 750px;
+    width: 700px;
     margin-top:20px;
     margin-bottom: 10px;
     color: black;       
@@ -36,10 +36,12 @@
 .btn{
   background-color: cadetblue;
   border: 0px;
-  margin-top: -4px;
+  margin-top: 1px;
+  margin-left: 10px;
 }
 .input-group{
   margin-left: 40%;
+  width:auto;
 }
 .form-outline{
   align-items: center;
@@ -58,4 +60,8 @@ li{
 }
 .recipeImage{
   border-radius: 50%;
+  width: 15%;
+}
+.recipeText{
+  width: 75%;
 }

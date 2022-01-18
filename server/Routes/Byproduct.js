@@ -17,4 +17,7 @@ router.post("/",async (req,res)=>{
         res.status(400).json({ error });
     }
 })
+// router.get("/",async (req,res){
+
+// })
 module.exports = router;
