@@ -3,7 +3,7 @@ import { useHistory, useLocation , NavLink} from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import "./styles/Home.css";
 import home_img from '../images/home_img.jpg';
-import home_img3 from '../images/home_img3.jpg';
+import home_img5 from '../images/home_img5.png';
 
 
 function Home() {
@@ -37,7 +37,7 @@ function Home() {
                         </Col>
 
                         <Col sm={6}>
-                                <img className='image2' src={home_img3} />
+                                <img className='image2' src={home_img5} />
                         </Col>
                 </Row>
         </Container>

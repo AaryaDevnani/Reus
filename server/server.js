@@ -32,11 +32,13 @@ app.use(express.urlencoded({ extended: false }));
 const userRoute = require("./Routes/Auth");
 const itemRoute = require("./Routes/Item");
 const groceryItemRoute = require("./Routes/GroceyItem");
+const ByproductRoute = require("./Routes/Byproduct");
 
 // Routes middlewares
 app.use("/api/user", userRoute);
 app.use("/api/items", itemRoute);
 app.use("/api/groceries", groceryItemRoute);
+app.use("/api/byproduct",ByproductRoute);
 
 const checkExpirations = require("./Helpers/checkExpirations");
 
