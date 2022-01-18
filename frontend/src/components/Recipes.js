@@ -98,7 +98,7 @@ function Recipes() {
                   className="recipeImage"
                   src={recipe.images.THUMBNAIL.url}
                 />
-                <ul>
+                <ul className='recipeText' >
                   {recipe.ingredients.map((i) => (
                     <li>{i.text}</li>
                   ))}
