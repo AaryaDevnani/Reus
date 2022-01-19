@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import './styles/Recipes.css';
 import { FaSearch } from 'react-icons/fa';
+import Recipebyproduct from './Recipebyproduct';
 
 function Recipes() {
   const { userId } = useSelector((state) => state.auth);
   const [search, setSearch] = useState('Brocolli');
   const [searchFinal, setSearchFinal] = useState('Brocolli');
   const [recipes, setRecipes] = useState([]);
+  const [byproducts, setByproducts] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [items, setItems] = useState([]);
   const getIngredients = async () => {
@@ -27,11 +29,26 @@ function Recipes() {
     }
   };
 
+  const filt=(ingredients,byproducts) =>{
+    // for(let i=0;i<10;i++){
+    //   console.log(ingredients.items[i])
+    // }
+    console.log(ingredients,byproducts)
+  } 
   const getByproducts = async()=>{
-    const response = await fetch(`api/byproducts`,{
-      
-    })
-  }
+    const response = await fetch(`api/byproduct`,{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }})
+      const data = await response.json();
+      if (!data.error === '') return data.error;
+      else {
+      setByproducts(data.items);
+    }
+    }
+
+
 
   const getRecipes = async (items) => {
     const appID = 'a670aefe';
@@ -62,6 +79,8 @@ function Recipes() {
   useEffect(() => {
     getRecipes(items);
     getIngredients();
+    getByproducts();
+
     
   }, [searchFinal, items]);
   return (
@@ -102,6 +121,9 @@ function Recipes() {
                 />
               ))}
             </div>
+          </div>  
+          <div className='invItems'>
+          <Recipebyproduct ingredients={ingredients} byproducts={byproducts} />
           </div>
         </div>
         <div className=" col-6 listItems">
