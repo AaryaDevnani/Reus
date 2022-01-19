@@ -12,6 +12,10 @@ const ByproductSchema = new mongoose.Schema({
   use: {
     type: String,
     required: true
+  },
+  videoURL: {
+    type: String,
+    required: false
   }
 });
 
