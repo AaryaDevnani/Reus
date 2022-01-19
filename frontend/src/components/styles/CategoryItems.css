@@ -94,6 +94,9 @@ box-shadow:  9px 9px 18px #b2d0c6,
     margin: 2px;
     font-size: 15px;
 }
+.expDate{
+    font-size: 17px;
+}
 .category{
     color: black;
     text-align: center;
@@ -127,3 +130,28 @@ button.modal-btn.butn.btn-primary :hover {
   margin-left: 40px ;
   margin-top: 30px;;
 }
+
+.deleteBtn{
+    color: #fafafa;
+    background-color: #F32C52;
+    padding: 5px 15px;
+    font-size: 15px;
+    border-radius: 20px;
+}
+.deleteBtn:hover{
+    background-color: rgb(116, 27, 27);
+}
+
+.donateBtn{
+    color: #fafafa;
+    background-color: #80CEE1;
+    padding: 5px 15px;
+    font-size: 15px;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+.donateBtn:hover{
+    background-color: #2b788b;
+}
+
