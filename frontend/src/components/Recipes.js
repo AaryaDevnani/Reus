@@ -12,6 +12,7 @@ function Recipes() {
   const [byproducts, setByproducts] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [items, setItems] = useState([]);
+  const [adding,setAdding]=useState(['Brocolli']);
   const getIngredients = async () => {
     const response = await fetch(`/api/items`, {
       method: 'GET',
@@ -28,13 +29,6 @@ function Recipes() {
       // setSearchFinal(data.items[0].name);
     }
   };
-
-  const filt=(ingredients,byproducts) =>{
-    // for(let i=0;i<10;i++){
-    //   console.log(ingredients.items[i])
-    // }
-    console.log(ingredients,byproducts)
-  } 
   const getByproducts = async()=>{
     const response = await fetch(`api/byproduct`,{
       method: 'GET',
@@ -48,7 +42,15 @@ function Recipes() {
     }
     }
 
-
+  const getAdding = (name)=>{
+    if(adding.includes(name)){
+      setAdding(adding.filter(a => a !== name))
+      setSearchFinal(adding.join(" "))
+    }else{
+      setAdding([...adding,name])
+      setSearchFinal(searchFinal + " " + name)
+    }
+  }
 
   const getRecipes = async (items) => {
     const appID = 'a670aefe';
@@ -64,7 +66,7 @@ function Recipes() {
       const data = await response.json();
       setRecipes(data.hits);
     } catch (error) {
-      console.log({ error });
+      alert({ error });
     }
   };
 
@@ -80,7 +82,6 @@ function Recipes() {
     getRecipes(items);
     getIngredients();
     getByproducts();
-
     
   }, [searchFinal, items]);
   return (
@@ -94,7 +95,7 @@ function Recipes() {
             value={search}
             onChange={handleOnChange}
           />
-          <label className="form-label" for="form1">
+          <label className="form-label" >
             Search
           </label>
         </div>
@@ -114,11 +115,13 @@ function Recipes() {
           <div className="invItems">
             <div className="btns">
               {ingredients.map((ingredient) => (
-                <input
-                  type="button"
-                  className="butn pill"
-                  value={ingredient.name}
-                />
+                  <input
+                    key={ingredient._id}
+                    type="button"
+                    className={adding.includes(ingredient.name) ? "butn pill pill-active" : "butn pill pill-inactive"}
+                    value={ingredient.name}
+                    onClick={()=>{getAdding(ingredient.name)}}
+                  />
               ))}
             </div>
           </div>  
@@ -131,12 +134,13 @@ function Recipes() {
           <p className='recp' >Recipes</p>
           {recipes.map(({ recipe }) => (
             <div className="item">
-              <p>{recipe.label}</p>
+              <p dangerouslySetInnerHTML={{__html: recipe.label}}></p>
               <div className="recipeCard">
                 {recipe.images.THUMBNAIL ? (
                   <img
                     className="recipeImage"
                     src={recipe.images.THUMBNAIL.url}
+                    alt=""
                   />
                 ) : (
                   <img
@@ -144,6 +148,7 @@ function Recipes() {
                     src={recipe.image}
                     height={100}
                     width={100}
+                    alt=""
                   />
                 )}
                 <ul className='recipeText'>

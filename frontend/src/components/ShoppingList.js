@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useLocation, NavLink } from 'react-router-dom';
-import { Button, CardGroup, Card, Container, Row, Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import './styles/ShoppingList.css';
 import { QuantityPicker } from 'react-qty-picker';
 import { FaTrash } from 'react-icons/fa';

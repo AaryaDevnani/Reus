@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import { useHistory, useLocation , NavLink} from 'react-router-dom';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import "./styles/Home.css";
 import home_img from '../images/home_img.jpg';
@@ -17,7 +16,7 @@ function Home() {
         <Container>
                 <Row>
                         <Col sm={6}>
-                                <img className='image' src={home_img} />
+                                <img className='image' src={home_img} alt="" />
                         </Col>
 
                         <Col sm={6}>
@@ -39,7 +38,7 @@ function Home() {
                         </Col>
 
                         <Col sm={6}>
-                                <img className='image2' src={home_img5} />
+                                <img className='image2' src={home_img5} alt="" />
                         </Col>
                 </Row>
         </Container>
@@ -77,7 +76,7 @@ function Home() {
         <Container>
                 <Row>
                         <Col sm={6}>
-                                <img className='image' src={home_img6} />
+                                <img className='image' src={home_img6} alt="" />
                         </Col>
 
                         <Col sm={6}>
@@ -95,7 +94,7 @@ function Home() {
                         </Col>
 
                         <Col sm={6}>
-                                <img className='image2' src={home_img7} />
+                                <img className='image2' src={home_img7} alt="" />
                         </Col>
                 </Row>
         </Container>
