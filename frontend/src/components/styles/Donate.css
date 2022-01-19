@@ -1,0 +1,74 @@
+.donatePage{
+    color: black;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.intro{
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 0px;
+}
+.donate-list-items{
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    margin: 0 auto;
+    justify-content: center;
+}
+.donateTable{
+    width: 90%;
+}
+.itemColumn{
+    width:70%;
+}
+
+.donateList{
+    width: 40%;
+    border-radius: 23px;
+    background: #5dbc9d;
+    box-shadow:  14px 14px 21px #aecbc1,
+             -14px -14px 21px #f0ffff;
+             z-index: 1;
+             margin:2%;
+             padding-bottom: 40px;
+             margin-left: 3%;
+}
+
+.donate-list-items{
+    align-items: center;
+    width: 85%;
+    justify-content: center;
+    border-radius: 13px;
+    background: #c6e4da;
+             z-index: 1;
+
+             
+}
+.donateBtn{
+    width: 40%;
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    font-size: 20px;
+    background-color:#114d4d;
+}
+.bannerName{
+    font-size: 5rem!important;
+    font-weight: 1000;
+    text-align: center;
+    color: #114d4d;
+}
+
+.donateBanner{
+    width: 70%;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
+    line-height: 100px;
+}
+
+.donatePage{
+    display: flex;
+}
