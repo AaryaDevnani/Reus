@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './styles/CategoryItems.css';
 import AddItem from './AddItem';
 import { Button, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { QuantityPicker } from 'react-qty-picker';
+import { deleteItemsAction, updateItemQuantityAction } from '../actions';
+import { Link, NavLink } from 'react-router-dom';
 
 function ItemList({ items, setItems, selectedCategory, byProducts }) {
+  const dispatch = useDispatch();
+
   // modal states
   const { userId } = useSelector((state) => state.auth);
   const [modalShow, setModalShow] = useState(false);
@@ -78,6 +82,23 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
     addItem();
   };
 
+  const deleteItem = async (itemId) => {
+    const deleteItemOptions = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    const response = await fetch(`/api/items/${itemId}`, deleteItemOptions);
+    const data = await response.json();
+    if (data.error === '') {
+      setItems(items.filter((i) => i._id !== itemId));
+      dispatch(deleteItemsAction(itemId));
+    } else {
+      alert(data.error);
+    }
+  };
+
   return (
     <div className="btn-cards">
       <div className="addBtn">
@@ -95,6 +116,9 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
           handleAddItemSubmit={handleAddItemSubmit}
           onHide={() => setModalShow(false)}
         />
+        <Link to="/shoppingList" className="btn btn-primary">
+          Grocery List
+        </Link>
       </div>
 
       <div className="itemList">
@@ -122,31 +146,43 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                 )}
               </div>
               <div>
-              <h3 className="itemName">
-                <b> {item.name}</b>
-              </h3>
-              <p className="itemInfo">
-                <span className="expDate">
-                  <b>
-                    Exp. Date : {new Date(item.expiryDate).getUTCDate()}/
-                    {new Date(item.expiryDate).getUTCMonth() + 1}/
-                    {new Date(item.expiryDate).getUTCFullYear()}
-                  </b>
-                </span>
+                <h3 className="itemName">
+                  <b> {item.name}</b>
+                </h3>
+                <p className="itemInfo">
+                  <span className="expDate">
+                    <b>
+                      Exp. Date : {new Date(item.expiryDate).getUTCDate()}/
+                      {new Date(item.expiryDate).getUTCMonth() + 1}/
+                      {new Date(item.expiryDate).getUTCFullYear()}
+                    </b>
+                  </span>
 
-                <QuantityPicker value={item.quantity} min={0} smooth />
-                <br />
-                {item.calories && (
-                  <>
-                    <span className="calorieInfo">
-                      Calories : {item.calories}{' '}
-                    </span>
-                  </>
-                )}
-              </p>
+                  <QuantityPicker
+                    value={item.quantity}
+                    onChange={(value) => {
+                      dispatch(
+                        updateItemQuantityAction({
+                          _id: item._id,
+                          quantity: value
+                        })
+                      );
+                    }}
+                    min={0}
+                    smooth
+                  />
+                  <br />
+                  {item.calories && (
+                    <>
+                      <span className="calorieInfo">
+                        Calories : {item.calories}{' '}
+                      </span>
+                    </>
+                  )}
+                </p>
+              </div>
             </div>
-            </div>
-            
+
             {item.byProduct &&
               item.byProduct.map((bp) => (
                 <>
@@ -165,7 +201,14 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
               ))}
               
             <div className="card-buttons">
-              <button className="deleteBtn">Delete</button>
+              <button
+                className="deleteBtn"
+                onClick={() => {
+                  deleteItem(item._id);
+                }}
+              >
+                Delete
+              </button>
               <button className="donateBtn">Donate</button>
             </div>
           </div>

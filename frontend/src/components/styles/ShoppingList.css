@@ -1,83 +1,48 @@
+.dashboardPage {
+  color: black;
+  margin-top: 20px;
+}
+.list-item {
+  width: 800px;
+  height: 50px;
+  margin: 10px 10px;
+  padding: 10px;
+  display: inline-flex;
+  border-radius: 10px;
+  background: #cff2e6;
+  box-shadow: 9px 9px 18px #b2d0c6, -9px -9px 18px #ecffff;
+  justify-content: space-between;
+}
+.list-item1 {
+  width: 800px;
+  height: 50px;
+  margin: 10px 10px;
+  padding: 10px;
+  display: inline-flex;
+  border-radius: 10px;
+  background: #5dbc9d;
+  box-shadow: 9px 9px 18px #b2d0c6, -9px -9px 18px #ecffff;
+  justify-content: space-between;
+}
 
-.dashboardPage{
-    color: black;
-    margin-top: 20px;
-    margin-left: 150px ;
+.bin {
+  margin-bottom: auto;
+  text-align: right;
+  padding-right: 4%;
+  color: rgb(134, 4, 4);
 }
-.flashImg{
-    border-radius: 60%;
-    margin-right: 10px;
-  }
-  .flashName{
-    margin-right: 550px;
-    margin-top: 8px;
-  }
-.flashData{
-    
-    font-size: 15px;
-    margin-bottom: 10px;
-    margin-left: 410px;
-    margin-top: -48px ;
-  }
-  .list-item{
-    width: 800px;
-    height: 70px;
-    /* min-height: 50px; */
-    margin: 10px 10px;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 20px;
-    background: #cff2e6;
-    box-shadow:  9px 9px 18px #b2d0c6,
-            -9px -9px 18px #ecffff;
-  }
-  .list-item1{
-    width: 800px;
-    height: 50px;
-    /* min-height: 50px; */
-    margin: 10px 10px;
-    padding: 10px;
-    display: flex;
-    border-radius: 20px;
-    background: #5dbc9d;
-    box-shadow:  9px 9px 18px #b2d0c6,
-            -9px -9px 18px #ecffff;
-}
-  .list-items{
-    display: flex;
-    flex-wrap: wrap;
-    width: 85%;
-    margin: auto;
-  }
-  
-  .btn1{
-    margin-top: -95px;
-    margin-left: 650px;
-    background-color: transparent;
-    border: black !important;
-}
-/* .heh2{
-    margin-right: 655px !important;
-}
-.heh3{
-    margin-right: 150px;
-    margin-top: -60px;
-} */
 
-.intro{
-    text-align: center;
-    margin-right: 0px;
-    margin-left: -370px;
+.name {
+  text-align: left;
 }
-.quantity{
-    margin-left: 250px;
-    margin-top: -40px;
+
+.quantity {
+  margin-left: 44% !important;
 }
-.item1{
-    margin-right: 570px !important;
-}
-.remove{
-    margin-left: 630px;
-    margin-top: -40px;
+
+.qty {
+  width: 20px;
+  font-size: 15px;
+  margin-top: -1.7%;
+  margin-left: 40%;
 }

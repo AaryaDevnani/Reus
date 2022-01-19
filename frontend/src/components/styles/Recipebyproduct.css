@@ -1,0 +1,46 @@
+.byproduct {
+    color: black;
+    font-size: 21px !important;
+    font-weight: 600;
+}
+
+.ing{
+    font-weight: 100px;
+    margin-top: 10px;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-weight: 100;
+    font-size: 18px;
+}
+.ing2{
+    margin-top: 5px;
+    text-align: left;
+    margin-left: 20px;
+    font-weight: 100;
+    margin-right: 20px;
+    font-size: 18px;
+}
+.ing3{
+    text-align: left;
+    margin-top: 5px;
+    margin-left: 20px;
+    border-bottom: 10px;
+    font-weight: 100;
+    margin-right: 20px;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.ing4{
+    text-align: left;
+    margin-top: 5px;
+    margin-left: 20px;
+    border-bottom: 10px;
+    font-weight: 100;
+    font-size: 18px;
+}
+.border{
+    border-top: 2px solid #5dbc9d !important;
+    margin-left: 5px;
+    margin-right: 5px;
+}

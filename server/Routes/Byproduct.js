@@ -3,11 +3,12 @@ const router = express.Router();
 const Byproduct = require("../Models/Byproduct");
 
 router.post("/", async (req, res) => {
-  const { itemName, itemByproduct, use } = req.body;
+  const { itemName, itemByproduct, use, videoURL } = req.body;
   const byproduct = new Byproduct({
     itemName,
     itemByproduct,
-    use
+    use,
+    videoURL
   });
   try {
     newByproduct = await byproduct.save();
@@ -40,4 +41,29 @@ router.get("/", async (req, res) => {
     return res.status(400).json({ error });
   }
 });
+
+router.put("/", async (req, res) => {
+  const { itemId, itemName, itemByproduct, use, videoURL } = req.body;
+  const byproduct = Byproduct.findById(itemId);
+  if (!byproduct) {
+    return res.status(400).json({ error: "No byproduct found" });
+  }
+  try {
+    await Byproduct.updateOne(
+      { _id: itemId },
+      {
+        itemName,
+        itemByproduct,
+        use,
+        videoURL,
+        updatedAt: Date.now()
+      },
+      { multi: false }
+    );
+  } catch (error) {
+    return res.status(500).json({ error });
+  }
+  res.status(201).json({ error: "" });
+});
+
 module.exports = router;
