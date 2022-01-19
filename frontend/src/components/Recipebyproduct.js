@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './styles/Recipebyproduct.css';
 
 function Recipebyproduct({ingredients, byproducts}) {

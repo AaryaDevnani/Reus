@@ -11,7 +11,6 @@ function Recipes() {
   const [recipes, setRecipes] = useState([]);
   const [byproducts, setByproducts] = useState([]);
   const [ingredients, setIngredients] = useState([]);
-  const [items, setItems] = useState([]);
   const [adding,setAdding]=useState(['Brocolli']);
   const getIngredients = async () => {
     const response = await fetch(`/api/items`, {
@@ -25,8 +24,6 @@ function Recipes() {
     if (!data.error === '') return data.error;
     else {
       setIngredients(data.items);
-      // setSearch(data.items[0].name);
-      // setSearchFinal(data.items[0].name);
     }
   };
   const getByproducts = async()=>{
@@ -52,7 +49,7 @@ function Recipes() {
     }
   }
 
-  const getRecipes = async (items) => {
+  const getRecipes = async () => {
     const appID = 'a670aefe';
     const app_key = '2062231e1e23e9cfc408fa3516285253d8';
     const apiURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${searchFinal}&app_id=${appID}&app_key=%${app_key}`;
@@ -79,11 +76,11 @@ function Recipes() {
   };
 
   useEffect(() => {
-    getRecipes(items);
+    getRecipes();
     getIngredients();
     getByproducts();
     
-  }, [searchFinal, items]);
+  }, [searchFinal]);
   return (
     <div className="recipePage container">
       <div className="input-group">
@@ -95,7 +92,7 @@ function Recipes() {
             value={search}
             onChange={handleOnChange}
           />
-          <label className="form-label" for="form1">
+          <label className="form-label" >
             Search
           </label>
         </div>
@@ -116,6 +113,7 @@ function Recipes() {
             <div className="btns">
               {ingredients.map((ingredient) => (
                   <input
+                    key={ingredient._id}
                     type="button"
                     className={adding.includes(ingredient.name) ? "butn pill pill-active" : "butn pill pill-inactive"}
                     value={ingredient.name}
@@ -139,6 +137,7 @@ function Recipes() {
                   <img
                     className="recipeImage"
                     src={recipe.images.THUMBNAIL.url}
+                    alt=""
                   />
                 ) : (
                   <img
@@ -146,6 +145,7 @@ function Recipes() {
                     src={recipe.image}
                     height={100}
                     width={100}
+                    alt=""
                   />
                 )}
                 <ul className='recipeText'>

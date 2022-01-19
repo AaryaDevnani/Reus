@@ -2,9 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { useHistory, useLocation , NavLink} from 'react-router-dom';
 import { Alert, Table, Button, CardGroup, Card, Container, Row, Col } from 'react-bootstrap';
 import "./styles/Donate.css";
-import { QuantityPicker } from 'react-qty-picker';
-import { FaTrash } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
 
 function Donate() {
   return(
