@@ -9,14 +9,14 @@ function CategoryFilter({ categories, onSelectCategory, selectedCategory }) {
         <div className='categories' key={i.id}>
        
             {selectedCategory.id === i.id ? (
-                <a className='catLinkActive' href="#" onClick={() => onSelectCategory(i.id)}>
+                <button className='catLinkActive' href="#" onClick={() => onSelectCategory(i.id)}>
                     {i.title}
-                </a>
+                </button>
                 
             ) : (
-                <a className='catLink' href="#" onClick={() => onSelectCategory(i.id)}>
+                <button className='catLink' href="#" onClick={() => onSelectCategory(i.id)}>
                     {i.title}
-                </a>
+                </button>
                
             )}
              </div>
