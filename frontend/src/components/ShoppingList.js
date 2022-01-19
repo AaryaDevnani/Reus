@@ -7,15 +7,14 @@ import { FaTrash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import AddShoppingItem from './AddShoppingItem';
 import {
+  deleteGroceryItemsAction,
   storeGroceryItemsAction,
   updateGroceryItemQuantityAction
 } from '../actions';
 
 function ShoppingList() {
   const dispatch = useDispatch();
-
   const { groceries } = useSelector((state) => state.groceries);
-
   const [modalShow, setModalShow] = React.useState(false);
   const { userId } = useSelector((state) => state.auth);
   const [items, setItems] = useState(groceries);
@@ -43,6 +42,13 @@ function ShoppingList() {
         'Content-Type': 'application/json'
       }
     })
+    const data = await response.json();
+    if (data.error === '') {
+      setItems(items.filter((i) => i._id !== groceryID));
+      dispatch(deleteGroceryItemsAction(groceryID));
+    } else {
+      alert(data.error);
+    }
   }
 
   useEffect(() => {
