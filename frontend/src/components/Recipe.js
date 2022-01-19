@@ -35,7 +35,7 @@ function Recipe() {
   return (<div>
     <Container>
                 <Row>
-                        <Col sm={6}>
+                        <Col sm={2}>
                                 <img className='recipeI' src={ings.image} alt="" />
                         </Col>
                         <Col sm={6}>
@@ -44,20 +44,24 @@ function Recipe() {
                 </Row>
         </Container>
         <Row>
+        <Col sm={6}>
         <div>
           <p className='ingredients'>Ingredients: </p>
         </div>
         <div>
-        <ul className='recipeText'>
+        <ul className='ingText'>
                    {ings.ingredients && ings.ingredients.map((i)=>(
                       <li>{i.text}</li>
                   ))
                   } 
                 </ul>
         </div>
-        <div>
-          <a href={ings.url} target = "_blank"className='steps'>Steps</a>
+        </Col>
+        <Col sm={6}>
+        <div className='j'>
+          <a href={ings.url} target = "_blank"className='steps'>View Steps Here</a>
         </div>
+        </Col>
         </Row>
         </div>
   )};
