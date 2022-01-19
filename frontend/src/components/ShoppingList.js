@@ -20,10 +20,11 @@ function ShoppingList() {
             }
           });
           const data = await response.json();
+          console.log(data);
           if (!data.error === '') return data.error;
           else {
             // setItems(data.items);
-            console.log({items: data.groceryItems});
+            // console.log({items: data.groceryItems});
           }
         };
 
