@@ -34,6 +34,7 @@
              margin:2%;
              padding-bottom: 40px;
              margin-left: 3%;
+             
 }
 
 .donate-list-items{
@@ -57,11 +58,17 @@
     font-size: 5rem!important;
     font-weight: 1000;
     text-align: center;
-    color: #114d4d;
+    color: white;
+    margin-top: 30px;
 }
 
 .donateBanner{
-    width: 70%;
+    background-color: #114d4d;
+    padding-top: 10px;
+    margin-top: 10px;
+    width: 100%;
+    padding: 2% 10%;
+    display: flex;
     justify-content: center;
     text-align: center;
     vertical-align: middle;
@@ -69,6 +76,17 @@
     line-height: 100px;
 }
 
-.donatePage{
+.donateListFlex{
     display: flex;
+    margin-bottom: 40px;
+}
+
+.howWorks{
+    margin: 2%;
+    margin-top: 3%;
+}
+
+.worksTitle{
+    font-size: 3rem;
+    font-weight: 700;
 }

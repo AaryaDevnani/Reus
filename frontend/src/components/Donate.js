@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 function Donate() {
   return(
   <div className='donatePage'>
-         
+        <div className='donateListFlex'>
       <div className='donateList'>
     <p className='intro'>Donate Item List</p>
             
@@ -49,8 +49,12 @@ function Donate() {
             </div> 
             <button className="donateBtn"> Donate </button>
             </div>
+            <div className='howWorks'>
+              <h2 className='worksTitle'>How it works?</h2>  
+            </div>
+            </div> 
             <div className='donateBanner'>
-          <img src='images/donate-png.jpg' className='flashImg' alt="donate" width="300"  />
+          <img src='images/donate-png.png' className='flashImg' alt="donate" width="300"  />
           <div>
            <h1 className='bannerName'>DONATE FOOD AND HELP SOMEONE</h1>
           </div>
