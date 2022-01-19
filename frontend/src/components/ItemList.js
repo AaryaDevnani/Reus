@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './styles/CategoryItems.css';
 import AddItem from './AddItem';
-import { Button } from 'react-bootstrap';
+import { Button, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { QuantityPicker } from 'react-qty-picker';
 import {
   addItemsAction,
@@ -25,6 +25,20 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
     imageURL: '',
     userId
   });
+  
+  // Expand Code 
+  const ps = document.querySelectorAll('p');
+  const observer = new ResizeObserver(entries => {
+  for (let entry of entries) {
+    entry.target.classList[entry.target.scrollHeight > entry.contentRect.height ? 'add' : 'remove']('truncated');
+    }
+  });
+
+  ps.forEach(p => {
+    observer.observe(p);
+  });
+
+  //Expand code end
 
   const currentItems = items.filter(
     (item) => item.category === selectedCategory.title
@@ -162,28 +176,34 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                     min={0}
                     smooth
                   />
-                  <br />
                   {item.calories && (
                     <>
-                      <span className="calorieInfo">
+                      <p className="calorieInfo">
                         Calories : {item.calories}{' '}
-                      </span>
+                      </p>
                     </>
                   )}
                 </p>
               </div>
             </div>
 
-            {item.byProduct &&
+            {/* {item.byProduct &&
               item.byProduct.map((bp) => (
                 <>
-                  <p className="byData">
-                    Use of By-Product: {bp.itemByproduct}
-                    <br />
-                    Details: {bp.use}
-                  </p>
+                  <OverlayTrigger
+                delay={{ hide: 450, show: 300 }}
+                overlay={(props) => (
+                  <Tooltip {...props} >
+                     Details: {bp.use}
+                  </Tooltip>
+                )}
+                placement="bottom"
+                ><Button variant="light">  Use of By-Product: {bp.itemByproduct}</Button>
+              </OverlayTrigger>
+              
                 </>
               ))}
+              
             <div className="card-buttons">
               <button
                 className="deleteBtn"
@@ -194,7 +214,7 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                 Delete
               </button>
               <button className="donateBtn">Donate</button>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
