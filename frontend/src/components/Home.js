@@ -2,27 +2,38 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import "./styles/Home.css";
 import home_img from '../images/home_img.jpg';
+import home_image from '../images/home_image.png';
 import home_img5 from '../images/home_img5.png';
 import home_img6 from '../images/home_img6.png';
 import home_img7 from '../images/home_img7.jpg';
+import reduce from '../images/reduce.jpg';
+// import reduce_r from '..images/reduce_r.png';
 
 
 function Home() {
         return(
         <div className='home'>
-                <Container>
+                {/* <Container>
+                <img src={reduce} className='reduce'></img>
                         <p className='header'>READY TO JOIN THE BATTLE AGAINST FOOD WASTE?</p>
-                </Container>
-        <Container>
+                </Container> */}
+                <div className='reduce'>
+          <img src={reduce} className='ig' alt="donate" width="300"  />
+          <div >
+           <h1 className='bannerReduce'>READY TO JOIN THE BATTLE AGAINST FOOD WASTE?</h1>
+          </div>
+            </div>
+        <Container >
                 <Row>
                         <Col sm={6}>
-                                <img className='image' src={home_img} alt="" />
+                                <img className='image' src={home_image} alt="" />
                         </Col>
 
                         <Col sm={6}>
                         <h5 className='text'>World Hunger is on the rise; yet, an estimated 1/3 of all food 
                         produced globally is lost or goes to waste. We all have a part to play in reducing 
-                        food loss and waste, not only for the sake of the food but for the resources that go into it.</h5>
+                        food loss and waste, not only for the sake of the food but for the resources that go into it.
+                        </h5>
                         </Col>
                 </Row>
         </Container>
@@ -42,6 +53,8 @@ function Home() {
                         </Col>
                 </Row>
         </Container>
+
+       
 
         <Container className='text2'>
                 <Row>
