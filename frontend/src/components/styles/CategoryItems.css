@@ -4,7 +4,7 @@
 }
 .itemData{
     display: flex;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     align-items: center;
     justify-content: center;
 
@@ -20,14 +20,14 @@
     color: black !important;
     min-height: 50px;
     margin: 20px 10px;
-  padding: 30px;
+  padding: 20px;
   border-radius: 20px;
 background: #cff2e6;
 box-shadow:  9px 9px 18px #b2d0c6,
            -9px -9px 18px #ecffff;
            max-width: 450px;
            height: fit-content;
-  width: 370px;
+  width: 390px;
   
 
 
@@ -75,7 +75,7 @@ box-shadow:  9px 9px 18px #b2d0c6,
     border-radius: 43px;
  width: 100%;
  font-size: 17px;
- background: #def3ec;
+ background: #b9e0d3;
  padding: 10px 50px;
  width: 100%;
  box-shadow:  8px 8px 16px #bdcfc9,
@@ -83,7 +83,7 @@ box-shadow:  9px 9px 18px #b2d0c6,
           z-index: 1;
 }
 .catLinkActive:hover{
-    color: black !important ;
+    color: #def3ec !important ;
 }
 
 .itemList{
@@ -95,8 +95,8 @@ box-shadow:  9px 9px 18px #b2d0c6,
 }
 
 .itemImage{
-    border-radius: 60%;
-    margin-right: 10px;
+    border-radius: 50%;
+    margin-right: 10px; 
 }
 .itemName{
     padding: 2px;
@@ -150,28 +150,34 @@ button.modal-btn.butn.btn-primary :hover {
     color: #fafafa;
     background-color: #F32C52;
     padding: 5px 15px;
-    font-size: 15px;
     border-radius: 20px;
 }
 .deleteBtn:hover{
     background-color: rgb(116, 27, 27);
 }
 
-.donateBtn{
+.donatBtn{
     color: #fafafa;
     background-color: #80CEE1;
     padding: 5px 15px;
-    font-size: 15px;
+    background-color: #114d4d;
     border-radius: 20px;
     margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-.donateBtn:hover{
+.donatBtn:hover{
     background-color: #2b788b;
 }
 .calorieInfo{
     margin-top: 5px;
     font-size: 15px;
+}
+.byproductText{
+    font-size: 15px;
+    padding-top: 5px;
+    margin-bottom: 5px;
 }
 
 
