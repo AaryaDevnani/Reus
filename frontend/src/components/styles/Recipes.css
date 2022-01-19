@@ -65,3 +65,6 @@ li{
 .recipeText{
   width: 75%;
 }
+input.butn.pill {
+  border-radius: 25px;
+}
