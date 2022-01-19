@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './styles/CategoryItems.css';
 import AddItem from './AddItem';
-import { Modal, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
-function ItemList({ items, selectedCategory, byProducts }) {
-  const [modalShow, setModalShow] = React.useState(false);
+function ItemList({ items, setItems, selectedCategory, byProducts }) {
+  // modal states
+  const { userId } = useSelector((state) => state.auth);
+  const [modalShow, setModalShow] = useState(false);
+  const [itemInput, setItemInput] = useState({
+    name: '',
+    expiryDate: Date.now(),
+    quantity: 0,
+    category: '',
+    imageURL: '',
+    userId
+  });
+
   const currentItems = items.filter(
     (item) => item.category === selectedCategory.title
   );
@@ -16,7 +28,41 @@ function ItemList({ items, selectedCategory, byProducts }) {
       }
     });
   });
-  console.log({ currentItems });
+
+  const handleOnItemInputChange = (e) => {
+    setItemInput({ ...itemInput, [e.target.name]: e.target.value });
+  };
+
+  const addItemOptions = {
+    method: 'POST',
+    body: JSON.stringify(itemInput),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  const addItem = async () => {
+    const response = await fetch('/api/items', addItemOptions);
+    const data = await response.json();
+    if (data.error === '') {
+      setItemInput({
+        name: '',
+        expiryDate: Date.now(),
+        quantity: 0,
+        category: '',
+        imageURL: ''
+      });
+      setItems([...items, data.newItem]);
+      setModalShow(false);
+    } else {
+      alert(data.error);
+    }
+  };
+
+  const handleAddItemSubmit = (e) => {
+    e.preventDefault();
+    addItem();
+  };
+
   return (
     <div className="btn-cards">
       <div className="addBtn">
@@ -27,7 +73,13 @@ function ItemList({ items, selectedCategory, byProducts }) {
         >
           Add Item
         </Button>
-        <AddItem show={modalShow} onHide={() => setModalShow(false)} />
+        <AddItem
+          show={modalShow}
+          itemInput={itemInput}
+          handleOnItemInputChange={handleOnItemInputChange}
+          handleAddItemSubmit={handleAddItemSubmit}
+          onHide={() => setModalShow(false)}
+        />
       </div>
 
       <div className="itemList">
@@ -42,44 +94,43 @@ function ItemList({ items, selectedCategory, byProducts }) {
         )}
         {currentItems.map((item) => (
           <div className="catItems" key={item._id}>
-            <div className='itemData'>
-            <div className="itemImage">
-              {item.imageURL && (
-                <img
-                  src={item.imageURL}
-                  className="flashImg"
-                  alt="abcd"
-                  width="120"
-                  height="120"
-                />
-              )}
+            <div className="itemData">
+              <div className="itemImage">
+                {item.imageURL && (
+                  <img
+                    src={item.imageURL}
+                    className="flashImg"
+                    alt="abcd"
+                    width="120"
+                    height="120"
+                  />
+                )}
+              </div>
+              <div>
+                <h3 className="itemName"> {item.name} </h3>
+                <p className="itemInfo">
+                  Exp. Date : {new Date(item.expiryDate).getUTCDate()}/
+                  {new Date(item.expiryDate).getUTCMonth() + 1}/
+                  {new Date(item.expiryDate).getUTCFullYear()} <br />
+                  Quantity : {item.quantity} <br />
+                  {item.calories && <>Calories : {item.calories}</>}
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="itemName"> {item.name} </h3>
-              <p className="itemInfo">
-                Exp. Date : {new Date(item.expiryDate).getUTCDate()}/
-                {new Date(item.expiryDate).getUTCMonth() + 1}/
-                {new Date(item.expiryDate).getUTCFullYear()} <br />
-                Quantity : {item.quantity} <br />
-                {item.calories && <>Calories : {item.calories}</>}
-              </p>
-              </div>
-              </div>
-              {item.byProduct &&
-                item.byProduct.map((bp) => (
-                  <>
-                    <p className='byData'>Additional Use: {bp.itemByproduct}
+            {item.byProduct &&
+              item.byProduct.map((bp) => (
+                <>
+                  <p className="byData">
+                    Additional Use: {bp.itemByproduct}
                     <br />
-                    Details: {bp.use}</p>
-                    
-                  </>
-                ))}
-            
+                    Details: {bp.use}
+                  </p>
+                </>
+              ))}
           </div>
         ))}
       </div>
     </div>
-    
   );
 }
 
