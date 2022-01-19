@@ -176,19 +176,18 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                     min={0}
                     smooth
                   />
-                  <br />
                   {item.calories && (
                     <>
-                      <span className="calorieInfo">
+                      <p className="calorieInfo">
                         Calories : {item.calories}{' '}
-                      </span>
+                      </p>
                     </>
                   )}
                 </p>
               </div>
             </div>
 
-            {item.byProduct &&
+            {/* {item.byProduct &&
               item.byProduct.map((bp) => (
                 <>
                   <OverlayTrigger
@@ -215,7 +214,7 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                 Delete
               </button>
               <button className="donateBtn">Donate</button>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

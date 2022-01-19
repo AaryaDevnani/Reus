@@ -42,6 +42,10 @@ function Donate() {
                             <td>Burger</td>
                             <td><button className="deleteBtn">Delete </button></td>
                         </tr>
+                        <tr>
+                            <td>French Fries</td>
+                            <td><button className="deleteBtn">Delete </button></td>
+                        </tr>
                     </tbody>
                 </Table>
             
@@ -50,7 +54,8 @@ function Donate() {
             <button className="donateBtn"> Donate </button>
             </div>
             <div className='howWorks'>
-              <h2 className='worksTitle'>How it works?</h2>  
+              <h2 className='worksTitle'>How it works?</h2> 
+              <img src='images/donate-how.png' className='howImage'  alt="donate" width="400"  />
             </div>
             </div> 
             <div className='donateBanner'>
