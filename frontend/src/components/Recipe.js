@@ -23,7 +23,8 @@ function Recipe() {
       console.log(data.recipe)
       setIngs(data.recipe)
     } catch (error) {
-      alert({ error });
+      console.log({error});
+      alert(error.message);
     }
   };
   useEffect(() => {
