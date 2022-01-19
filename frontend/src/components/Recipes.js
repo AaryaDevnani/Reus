@@ -115,7 +115,7 @@ function Recipes() {
                     width={100}
                   />
                 )}
-                <ul>
+                <ul className='recipeText'>
                   {recipe.ingredients.map((i) => (
                     <li>{i.text}</li>
                   ))}
