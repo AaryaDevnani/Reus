@@ -5,8 +5,8 @@ import { FaSearch } from 'react-icons/fa';
 
 function Recipes() {
   const { userId } = useSelector((state) => state.auth);
-  const [search, setSearch] = useState('Potato');
-  const [searchFinal, setSearchFinal] = useState('Potato');
+  const [search, setSearch] = useState('Brocolli');
+  const [searchFinal, setSearchFinal] = useState('Brocollu');
   const [recipes, setRecipes] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [items, setItems] = useState([]);
