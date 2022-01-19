@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Alert, Table } from 'react-bootstrap';
 import "./styles/Donate.css";
 
 function Donate() {
@@ -47,8 +47,18 @@ function Donate() {
             
             
             </div> 
-            <button className="donateBtn"> Donate </button>
+            <button className="donateBtn"> Donate 
+            <Alert variant="success">
+            <Alert.Heading>Thank you for donating your food!</Alert.Heading>
+            <hr />
+            <p className="mb-0">
+                Your initiative to prevent food wastage is appreciated!
+            </p>
+            </Alert>
+            </button>
+        )
             </div>
+
             <div className='howWorks'>
               <h2 className='worksTitle'>How it works?</h2> 
               <img src='images/donate-how.png' className='howImage'  alt="donate" width="400"  />
@@ -57,7 +67,7 @@ function Donate() {
             <div className='donateBanner'>
           <img src='images/donate-png.png' className='flashImg' alt="donate" width="300"  />
           <div>
-           <h1 className='bannerName'>DONATE FOOD AND HELP SOMEONE</h1>
+           <h1 className='bannerName'>DONATE FOOD TO AVOID WASTAGE</h1>
           </div>
             </div>
   </div>
