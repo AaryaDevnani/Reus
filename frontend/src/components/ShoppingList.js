@@ -5,11 +5,10 @@ import "./styles/ShoppingList.css";
 import { QuantityPicker } from 'react-qty-picker';
 import { FaTrash } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
-
-
+import  AddShoppingItem  from './AddShoppingItem';
 
 function ShoppingList() {
-    
+    const [modalShow, setModalShow] = React.useState(false);
         const { userId } = useSelector((state) => state.auth);
         const [items, setItems] = useState([]);
         const getGroceries = async () => {
@@ -37,7 +36,16 @@ function ShoppingList() {
     return (
         <div className="dashboardPage">
             <p className='intro'>Your Shopping List</p>
-            
+            <>
+      <Button className='butt' variant="primary" onClick={() => setModalShow(true)}>
+        Add Item
+      </Button>
+
+      <AddShoppingItem
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+    </>
             <div className='list-items'> 
             <div className='list-item1'>
                 <div>
