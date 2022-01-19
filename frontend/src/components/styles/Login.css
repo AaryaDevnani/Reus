@@ -183,3 +183,33 @@
     left:0
   }
 
+  @media only screen and (max-width: 600px) {
+    .second-wave{
+      display: none !important;
+    }
+    
+      .wave{
+      display: none !important;
+      }
+      .LoginPage{
+        display: block;
+        width: 100%;
+      }
+      .info{
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 30px;
+      }
+      .description{
+        font-size: 20px;
+      }
+      .login-add-form{
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+      }
+
+  }
+

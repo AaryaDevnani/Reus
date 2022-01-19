@@ -28,6 +28,7 @@ box-shadow:  9px 9px 18px #b2d0c6,
            max-width: 450px;
            height: fit-content;
   width: 390px;
+  margin-top: 0px;
   
 
 
@@ -44,13 +45,15 @@ box-shadow:  9px 9px 18px #b2d0c6,
 
 .categories{
     margin-top: 15px ;
-    margin-right: 20px;
+    margin-right: 40px;
 }
 
 .categoryList{
    float: left;
-   margin-left: 20px;
+   margin-left: 40px !important;
+   padding-left: 8%;
    margin-top: 20px;
+   width: 27%;
 }
 
 .catLink{
@@ -88,10 +91,7 @@ box-shadow:  9px 9px 18px #b2d0c6,
 
 .itemList{
    color: black; 
-   margin-left: 30px;
-   margin-top: 10px;
-   display: flex;
-   flex-wrap: wrap;
+   margin-left: 40px;
 }
 
 .itemImage{
@@ -114,7 +114,10 @@ box-shadow:  9px 9px 18px #b2d0c6,
     color: black;
     text-align: left;
     justify-content: center;
-    margin-left: 10%;
+    font-size: 25px;
+    padding-left: 10px;
+    border-left: #114d4d 4px solid;
+    margin-left: 5px;
 }
 a{
     text-decoration: none;
@@ -138,12 +141,14 @@ button.modal-btn.butn.btn-primary :hover {
     float: left;
     align-items: left;
     justify-content: left;
+    margin-top: 20px ;
 
 }
 .addBtn{
     display: flex;
   margin-left: 40px ;
   margin-top: 30px;;
+  display: none;
 }
 
 .deleteBtn{
@@ -151,6 +156,7 @@ button.modal-btn.butn.btn-primary :hover {
     background-color: #F32C52;
     padding: 5px 15px;
     border-radius: 20px;
+    font-size: 15px;
 }
 .deleteBtn:hover{
     background-color: rgb(116, 27, 27);
@@ -165,6 +171,7 @@ button.modal-btn.butn.btn-primary :hover {
     margin-left: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
+    font-size: 15px;
 }
 
 .donatBtn:hover{
@@ -179,7 +186,34 @@ button.modal-btn.butn.btn-primary :hover {
     padding-top: 5px;
     margin-bottom: 5px;
 }
+.itms{
+    color: black;
+    text-align: left;
+    justify-content: center;
+    font-size: 24px;
+    padding-left: 10px;
+    border-left: #114d4d 4px solid;
+    margin-left: 5px;
 
+
+}
+
+@media only screen and (max-width: 600px){
+    .categoryFilter{
+        display: block;
+    }
+    .categoryList{
+        display: flex;
+        flex-wrap: wrap; 
+        width: 100%; 
+    }
+    .category{
+        width: 100%;
+        text-align: center;
+        margin-left: 0px;
+    }
+
+}
 
 
 

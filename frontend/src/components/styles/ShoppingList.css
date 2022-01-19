@@ -40,6 +40,10 @@
   margin-left: 44% !important;
 }
 
+.qtyWrapper {
+  display: block;
+}
+
 .qty {
   width: 20px;
   font-size: 15px;

@@ -18,7 +18,7 @@ function NavBar() {
     >
       <nav>
         <div className="logo">
-          <img src="images/Logo.png" alt="logo" width="170px" />
+          <img src="images/logo-3.png" alt="logo" width="170px" />
         </div>
         <label htmlFor="btn" className="fa_icon">
           <FaBars />
