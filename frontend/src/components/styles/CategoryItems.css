@@ -7,7 +7,7 @@
     padding-bottom: 5px;
     align-items: center;
     justify-content: center;
-
+    margin-bottom: 5px;
 }
 .byData{
     font-size: 15px;
@@ -29,9 +29,23 @@ box-shadow:  9px 9px 18px #b2d0c6,
            height: fit-content;
   width: 390px;
   margin-top: 0px;
-  
-
-
+  height: 250px;
+}
+.batItems{
+    color: black !important;
+    min-height: 50px;
+    margin: 20px 10px;
+  padding: 20px;
+  border-radius: 20px;
+background: #cff2e6;
+box-shadow:  9px 9px 18px #b2d0c6,
+           -9px -9px 18px #ecffff;
+           max-width: 450px;
+           height: fit-content;
+  width: 390px;
+  margin-top: 0px;
+  height: 250px;
+  margin-left: 30px;
 }
 .noCatItems{
     color: black !important;
@@ -49,11 +63,11 @@ box-shadow:  9px 9px 18px #b2d0c6,
 }
 
 .categoryList{
-   float: left;
-   margin-left: 40px !important;
-   padding-left: 8%;
-   margin-top: 20px;
-   width: 27%;
+    float: left;
+    margin-left: 40px !important;
+    padding-left: 3%;
+    margin-top: 20px;
+    width: 20%;
 }
 
 .catLink{
@@ -142,6 +156,7 @@ button.modal-btn.butn.btn-primary :hover {
     align-items: left;
     justify-content: left;
     margin-top: 20px ;
+    border-left: #114d4d65 2px solid ;
 
 }
 .addBtn{
@@ -181,6 +196,20 @@ button.modal-btn.butn.btn-primary :hover {
     margin-top: 5px;
     font-size: 15px;
 }
+.byProdInfo{
+    margin-top: 5px;
+    font-size: 15px;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 6; /* number of lines to show */
+   -webkit-box-orient: vertical;
+   margin-bottom: 0px;
+}
+.byProdVid{
+    margin-top: 2px;
+    font-size: 15px;
+}
 .byproductText{
     font-size: 15px;
     padding-top: 5px;
@@ -194,8 +223,22 @@ button.modal-btn.butn.btn-primary :hover {
     padding-left: 10px;
     border-left: #114d4d 4px solid;
     margin-left: 5px;
+    width: 430px;
 
 
+}
+.item-biffer{
+    display: flex;
+}
+.byProdList{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.item-n-by{
+    display: flex;
+}
+.bothNames{
+    display: flex;
 }
 
 @media only screen and (max-width: 600px){

@@ -48,12 +48,18 @@
 
              
 }
-.donateBtn{
+.donateBtn {
     width: 40%;
     color: rgb(255, 255, 255);
     margin-top: 20px;
     font-size: 20px;
-    background-color:#114d4d;
+    background-color: #114d4d;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 25px;
+}
+.donateBtn:hover{
+    background-color: #114d4db6 ;
 }
 .bannerName{
     font-size: 5rem!important;
@@ -95,4 +101,9 @@
     font-weight: 700;
     color: #1d4d4d;
 }
-
+.td-left{
+    text-align: left;
+}
+.td-right{
+    text-align: right;
+}

@@ -7,11 +7,11 @@ function Donate() {
   <div className='donatePage'>
         <div className='donateListFlex'>
       <div className='donateList'>
-    <p className='intro'>Donate Item List</p>
+    <p className='intro'><b>Donation List</b></p>
             
             <div className='donate-list-items'> 
                 <Table  className='donateTable'>
-                    <thead  >
+                    {/* <thead  >
                         <tr>
                         <th className='itemColumn'>
                             Item
@@ -20,27 +20,11 @@ function Donate() {
                             Remove
                         </th>
                         </tr>
-                    </thead>
+                    </thead> */}
                     <tbody >
                         <tr>
-                            <td>Burger</td>
-                            <td><button className="deleteBtn">Delete </button></td>
-                        </tr>
-                        <tr>
-                            <td>Kanda Bhaji</td>
-                            <td><button className="deleteBtn">Delete </button></td>
-                        </tr>
-                        <tr>
-                            <td>Pasta</td>
-                            <td><button className="deleteBtn">Delete </button></td>
-                        </tr>
-                        <tr>
-                            <td>Burger</td>
-                            <td><button className="deleteBtn">Delete </button></td>
-                        </tr>
-                        <tr>
-                            <td>French Fries</td>
-                            <td><button className="deleteBtn">Delete </button></td>
+                            <td className='td-left'>Burger</td>
+                            <td className='td-right'><button className="deleteBtn td-right">X</button></td>
                         </tr>
                     </tbody>
                 </Table>
