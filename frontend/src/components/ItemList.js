@@ -42,6 +42,7 @@ function ItemList({ items, selectedCategory, byProducts }) {
         )}
         {currentItems.map((item) => (
           <div className="catItems" key={item._id}>
+            <div className='itemData'>
             <div className="itemImage">
               {item.imageURL && (
                 <img
@@ -62,21 +63,23 @@ function ItemList({ items, selectedCategory, byProducts }) {
                 Quantity : {item.quantity} <br />
                 {item.calories && <>Calories : {item.calories}</>}
               </p>
+              </div>
+              </div>
               {item.byProduct &&
                 item.byProduct.map((bp) => (
                   <>
-                    <small>Additional Use: {bp.itemByproduct}</small>
+                    <p className='byData'>Additional Use: {bp.itemByproduct}
                     <br />
-                    <small>Details: {bp.use}</small>
-                    <br />
+                    Details: {bp.use}</p>
+                    
                   </>
                 ))}
-            </div>
+            
           </div>
         ))}
       </div>
     </div>
-    </div>
+    
   );
 }
 
