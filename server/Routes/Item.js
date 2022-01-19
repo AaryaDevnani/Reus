@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Item = require("../Models/Item");
+const GroceryItem = require("../Models/GroceryItem");
 const Notification = require("../Models/Notification");
 const generateNotifications = require("../Helpers/generateNotification");
 
@@ -96,18 +97,23 @@ router.put("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   const itemId = req.params.id;
-  const item = Item.findById(itemId);
+  const item = await Item.findById(itemId);
+  const groceryItem = new GroceryItem({
+    name:item.name,
+    userId:item.userId,
+    quantity:item.quantity
+  });
   if (!item) return res.status(202).json({ error: "" });
   try {
     await Item.deleteOne({
       _id: itemId
     });
+    await groceryItem.save()
     await Notification.deleteMany({ itemId }, { multi: true });
     res.status(202).json({ error: "" });
   } catch (error) {
     res.status(400).json({ error });
   }
-  //add to shopping list on delete
   
 });
 
