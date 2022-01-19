@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import './styles/CategoryItems.css';
 import AddItem from './AddItem';
 import { Button } from 'react-bootstrap';
+import { QuantityPicker } from 'react-qty-picker';
 
 function ItemList({ items, setItems, selectedCategory, byProducts }) {
   // modal states
@@ -117,16 +118,44 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                 </p>
               </div>
             </div>
+            <div>
+              <h3 className="itemName">
+                <b> {item.name}</b>
+              </h3>
+              <p className="itemInfo">
+                <span className="expDate">
+                  <b>
+                    Exp. Date : {new Date(item.expiryDate).getUTCDate()}/
+                    {new Date(item.expiryDate).getUTCMonth() + 1}/
+                    {new Date(item.expiryDate).getUTCFullYear()}
+                  </b>
+                </span>
+
+                <QuantityPicker value={item.quantity} min={0} smooth />
+                <br />
+                {item.calories && (
+                  <>
+                    <span className="calorieInfo">
+                      Calories : {item.calories}{' '}
+                    </span>
+                  </>
+                )}
+              </p>
+            </div>
             {item.byProduct &&
               item.byProduct.map((bp) => (
                 <>
                   <p className="byData">
-                    Additional Use: {bp.itemByproduct}
+                    Use of By-Product: {bp.itemByproduct}
                     <br />
                     Details: {bp.use}
                   </p>
                 </>
               ))}
+            <div className="card-buttons">
+              <button className="deleteBtn">Delete</button>
+              <button className="donateBtn">Donate</button>
+            </div>
           </div>
         ))}
       </div>
