@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './styles/CategoryItems.css';
 import AddItem from './AddItem';
 import { Button } from 'react-bootstrap';
 import { QuantityPicker } from 'react-qty-picker';
+import { updateItemQuantityAction } from '../actions';
 
 function ItemList({ items, setItems, selectedCategory, byProducts }) {
+  const dispatch = useDispatch();
+
   // modal states
   const { userId } = useSelector((state) => state.auth);
   const [modalShow, setModalShow] = useState(false);
@@ -108,31 +111,43 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                 )}
               </div>
               <div>
-              <h3 className="itemName">
-                <b> {item.name}</b>
-              </h3>
-              <p className="itemInfo">
-                <span className="expDate">
-                  <b>
-                    Exp. Date : {new Date(item.expiryDate).getUTCDate()}/
-                    {new Date(item.expiryDate).getUTCMonth() + 1}/
-                    {new Date(item.expiryDate).getUTCFullYear()}
-                  </b>
-                </span>
+                <h3 className="itemName">
+                  <b> {item.name}</b>
+                </h3>
+                <p className="itemInfo">
+                  <span className="expDate">
+                    <b>
+                      Exp. Date : {new Date(item.expiryDate).getUTCDate()}/
+                      {new Date(item.expiryDate).getUTCMonth() + 1}/
+                      {new Date(item.expiryDate).getUTCFullYear()}
+                    </b>
+                  </span>
 
-                <QuantityPicker value={item.quantity} min={0} smooth />
-                <br />
-                {item.calories && (
-                  <>
-                    <span className="calorieInfo">
-                      Calories : {item.calories}{' '}
-                    </span>
-                  </>
-                )}
-              </p>
+                  <QuantityPicker
+                    value={item.quantity}
+                    onChange={(value) => {
+                      dispatch(
+                        updateItemQuantityAction({
+                          _id: item._id,
+                          quantity: value
+                        })
+                      );
+                    }}
+                    min={0}
+                    smooth
+                  />
+                  <br />
+                  {item.calories && (
+                    <>
+                      <span className="calorieInfo">
+                        Calories : {item.calories}{' '}
+                      </span>
+                    </>
+                  )}
+                </p>
+              </div>
             </div>
-            </div>
-            
+
             {item.byProduct &&
               item.byProduct.map((bp) => (
                 <>
