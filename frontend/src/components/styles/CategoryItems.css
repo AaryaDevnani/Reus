@@ -163,7 +163,7 @@ button.modal-btn.butn.btn-primary :hover {
     display: flex;
   margin-left: 40px ;
   margin-top: 30px;;
-  display: none;
+  /* display: none; */
 }
 
 .deleteBtn{

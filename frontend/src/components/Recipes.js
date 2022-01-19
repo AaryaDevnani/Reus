@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import './styles/Recipes.css';
 import { FaSearch } from 'react-icons/fa';
 import Recipebyproduct from './Recipebyproduct';
+import { Link } from 'react-router-dom';
 
 function Recipes() {
   const { userId } = useSelector((state) => state.auth);
@@ -53,6 +54,8 @@ function Recipes() {
     const appID = 'a670aefe';
     const app_key = '2062231e1e23e9cfc408fa3516285253d8';
     const apiURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${searchFinal}&app_id=${appID}&app_key=%${app_key}`;
+    // const apiURL = `https://api.edamam.com/api/recipes/v2/4442d46778d89c3b9adf19580b3fd317?type=public&app_id=a670aefe&app_key=2062231e1e23e9cfc408fa3516285253d8
+
     try {
       const response = await fetch(apiURL, {
         method: 'GET',
@@ -61,6 +64,8 @@ function Recipes() {
         }
       });
       const data = await response.json();
+      console.log({x: data});
+      
       setRecipes(data.hits);
     } catch (error) {
       alert({ error });
@@ -131,7 +136,7 @@ function Recipes() {
           <p className='recp' >Recipes</p>
           {recipes.map(({ recipe }) => (
             <div className="item">
-              <p dangerouslySetInnerHTML={{__html: recipe.label}}></p>
+              <p className="recipeName" dangerouslySetInnerHTML={{__html: recipe.label}}></p>
               <div className="recipeCard">
                 {recipe.images.THUMBNAIL ? (
                   <img
@@ -148,11 +153,30 @@ function Recipes() {
                     alt=""
                   />
                 )}
-                <ul className='recipeText'>
+                {/* <ul className='recipeText'>
                   {recipe.ingredients.map((i) => (
                     <li>{i.text}</li>
                   ))}
+                </ul> */}
+                <ul className='recipeText'>
+                {recipe.dietLabels && recipe.dietLabels.length>0 ? (
+                    <li>Diet Labels: {recipe.dietLabels.join(", ")}</li>
+                ):<div></div>}
+                {recipe.cuisineType ? (
+                  <li>Cuisine: {recipe.cuisineType}</li>
+                ):<div></div>}
+                {recipe.dishType ? (
+                  <li>Dish Type: {recipe.dishType}</li>
+                ):<div></div>}
+                {recipe.mealType ? (
+                  <li>Meal Type: {recipe.mealType}</li>
+                ):<div></div>}
+                {<li>Calories: {recipe.calories.toPrecision(4)}</li>}
                 </ul>
+                {console.log(recipe.uri.split("_")[1])}
+                <Link to={`/recipe${recipe.name}`} className="recipeButton" >
+                  &gt;
+                </Link>
               </div>
             </div>
           ))}
