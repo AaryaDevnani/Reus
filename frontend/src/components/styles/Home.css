@@ -3,6 +3,7 @@
     font-family: "Poppins", sans-serif;
     margin-bottom: 20px;
     background: #fcf8f2;
+    overflow-x: hidden;
   }
     .home{
         color: black;
@@ -14,49 +15,87 @@
     font-weight: 600;
   }
    .image{
-     width: 350px;
+      width: 350px;
      height: 350px;
-     margin-top: 30px;
-     border-radius: 20px;
+     margin-top: 20px;
+     margin-left: -50px;
    }
    .image2{
-    width: 450px;
+    width: 400px;
     height: 350px;
     margin-top: 50px;
-    border-radius: 20px;
-     
    }
    .header{
      color: #006400;
      font-size: 50px !important;
-     margin: 10px;
      margin-left: 100px;
-     margin-right: 100px;
+     margin-right: 0px;
+     margin-top: 10px;
      font-weight: 600;
      font-family:Verdana, Geneva, Tahoma, sans-serif;
    }
    .heh{
-     /* background-color: #5dbc9c; */
      border-radius: 20px !important;
-     background: #5dbc9d;
-     /* box-shadow:  3px 3px 30px #4fa085,
-                  -3px -3px 30px #6bd8b5; */
+     background: #114D4D;
+     color: white;
+     margin: 2%;
+     margin-bottom: -100px;
    }
+   .heh2{
+    border-radius: 20px !important;
+    background: #114D4D;
+    color: white;
+    margin: 2%;
+  }
    .text{
      margin-top: -120px;
      margin-bottom: 50px;
+     margin-left: 200px;
+     line-height: 150%;
    }
    .text2{
-    margin-top: -40px;
+    margin-top: 100px !important;
     margin-bottom: 20px;
+    margin-right: 30px;
+    line-height: 150%;
   }
   .text3{
-    margin-top: 150px !important;
+    margin-top: 20px;
+    margin-bottom: -20px;
   }
-/* .text4{
-  font-weight: 600 !important;
+
+.reduce{
+  width: 100%;
+  margin-top: -10px;
+  padding: 50px;
+  display: flex;
+  vertical-align: middle;
+  line-height: 100px;
 }
-.text5{
-  font-weight: 600 !important;
+.bannerReduce{
+  color: #114D4D;
+  font-size: 4rem!important;
+    font-weight: 1000 !important;
+    text-align: right;
+    margin-top: 100px;
 }
-   */
+.ig{
+  border-radius: 70%;
+  width: 35%
+}
+.words{
+  width: 350px;
+     height: 350px;
+     margin-top: 30px;
+     margin-left: 80px;
+     border-radius: 20px;
+     background-color: #5dbc9d;
+     box-shadow:  14px 14px 21px #aecbc1,
+             -14px -14px 21px #f0ffff;
+
+}
+.ban{
+  background-color: #114D4D;
+  color: white;
+  margin-left: -100px;
+}
