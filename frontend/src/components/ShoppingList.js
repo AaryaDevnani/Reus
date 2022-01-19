@@ -53,7 +53,7 @@ function ShoppingList() {
                         <div className='list-item'>
                         <div>
                         <h3 className='flashName'>{item.name}</h3> 
-                        <p className='flashData'><QuantityPicker min={0} smooth/></p>
+                        <p className='flashData'><QuantityPicker min={1} smooth/></p>
                         <Button variant='outline-dark' className='btn1'>Delete </Button>
                         </div>
                         </div>
