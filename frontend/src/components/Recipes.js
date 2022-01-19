@@ -174,7 +174,7 @@ function Recipes() {
                 {<li>Calories: {recipe.calories.toPrecision(4)}</li>}
                 </ul>
                 {console.log(recipe.uri.split("_")[1])}
-                <Link to={`/recipe${recipe.name}`} className="recipeButton" >
+                <Link to={`/recipe`} className="recipeButton" >
                   &gt;
                 </Link>
               </div>
