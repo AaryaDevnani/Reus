@@ -7,16 +7,11 @@ function Recipebyproduct({ingredients, byproducts}) {
         ing['byProducts'] = []
         byproducts.map(bp => {
             if (ing.name === bp.itemName) {
-                console.log("here")
                 ing.byProducts.push(bp)
             }
         })
         return ing
     }).filter(ing => ing.byProducts.length > 0)
-    
-    useEffect(() => {
-        console.log({itemsWithByProducts})
-    }, [itemsWithByProducts])
     
     return (
         <div item>

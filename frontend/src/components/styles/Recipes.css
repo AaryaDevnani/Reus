@@ -55,6 +55,12 @@
   cursor: pointer;
   border-radius: 16px;*/
 }
+
+.pill-inactive {
+  background-color: white !important;
+  color: black !important;
+}
+
 .btn{
   background-color: cadetblue;
   border: 0px;
