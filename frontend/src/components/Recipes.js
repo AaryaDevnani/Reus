@@ -110,8 +110,8 @@ function Recipes() {
       </div>
       <div className="row">
         <div className="col-5">
+          <p className='ingr' >Ingredients</p>
           <div className="invItems">
-            Ingredients
             <div className="btns">
               {ingredients.map((ingredient) => (
                 <input
@@ -122,11 +122,13 @@ function Recipes() {
               ))}
             </div>
           </div>  
+          <p className='byproduct' >Byproducts</p> 
           <div className='invItems'>
           <Recipebyproduct ingredients={ingredients} byproducts={byproducts} />
           </div>
         </div>
         <div className=" col-6 listItems">
+          <p className='recp' >Recipes</p>
           {recipes.map(({ recipe }) => (
             <div className="item">
               <p>{recipe.label}</p>

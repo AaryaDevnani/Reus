@@ -40,6 +40,7 @@
     font-size: 18px;
 }
 .border{
-    border: 1.5px solid #ffffff !important;
-    
+    border-top: 2px solid #5dbc9d !important;
+    margin-left: 5px;
+    margin-right: 5px;
 }
