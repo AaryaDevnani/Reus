@@ -25,16 +25,18 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
     imageURL: '',
     userId
   });
-  
-  // Expand Code 
+
+  // Expand Code
   const ps = document.querySelectorAll('p');
-  const observer = new ResizeObserver(entries => {
-  for (let entry of entries) {
-    entry.target.classList[entry.target.scrollHeight > entry.contentRect.height ? 'add' : 'remove']('truncated');
+  const observer = new ResizeObserver((entries) => {
+    for (let entry of entries) {
+      entry.target.classList[
+        entry.target.scrollHeight > entry.contentRect.height ? 'add' : 'remove'
+      ]('truncated');
     }
   });
 
-  ps.forEach(p => {
+  ps.forEach((p) => {
     observer.observe(p);
   });
 
@@ -93,8 +95,8 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body:{
-        'type':'grocery'
+      body: {
+        type: 'grocery'
       }
     };
     const response = await fetch(`/api/items/${itemId}`, deleteItemOptions);
@@ -108,8 +110,9 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
   };
 
   return (
-    <div className="btn-cards">
-      <div className="addBtn">
+    <div className="item-biffer">
+      <div className="btn-cards">
+        {/* <div className="addBtn">
         <Button
           className="modal-btn"
           variant="primary"
@@ -127,71 +130,75 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
         <Link to="/shoppingList" className="btn btn-primary">
           Grocery List
         </Link>
-      </div>
+      </div> */}
 
-      <div className="itemList">
-        <p className='itms'> Items </p>
-        {currentItems.length === 0 && (
-          <div className="noCatItems">
-            <img
-              src="images/product-not-found.jpg"
-              alt="Product Not Found"
-              width="600"
-            />
+        <div className="itemList">
+          <div className='bothNames'>
+          <p className="itms"> Items </p>
+          <p className="itms"> Its By-product </p>
           </div>
-        )}
-        {currentItems.map((item) => (
-          <div className="catItems" key={item._id}>
-            <div className="itemData">
-              <div className="itemImage">
-                {item.imageURL && (
-                  <img
-                    src={item.imageURL}
-                    className="flashImg"
-                    alt="abcd"
-                    width="120"
-                    height="120"
-                  />
-                )}
-              </div>
-              <div>
-                <h3 className="itemName">
-                  <b> {item.name}</b>
-                </h3>
-                <p className="itemInfo">
-                  <span className="expDate">
-                    <b>
-                      Exp. Date : {new Date(item.expiryDate).getUTCDate()}/
-                      {new Date(item.expiryDate).getUTCMonth() + 1}/
-                      {new Date(item.expiryDate).getUTCFullYear()}
-                    </b>
-                  </span>
-
-                  <QuantityPicker
-                    value={item.quantity}
-                    onChange={(value) => {
-                      dispatch(
-                        updateItemQuantityAction({
-                          _id: item._id,
-                          quantity: value
-                        })
-                      );
-                    }}
-                    min={0}
-                    smooth
-                  />
-                  {item.calories && (
-                    <>
-                      <p className="calorieInfo">
-                        Calories : {item.calories}{' '}
-                      </p>
-                    </>
-                  )}
-                </p>
-              </div>
+          {currentItems.length === 0 && (
+            <div className="noCatItems">
+              <img
+                src="images/product-not-found.jpg"
+                alt="Product Not Found"
+                width="600"
+              />
             </div>
-            <div className='byProd-butn'>
-            {item.byProduct &&
+          )}
+          {currentItems.map((item) => (
+            <div className="item-n-by">
+              <div className="catItems" key={item._id}>
+                <div className="itemData">
+                  <div className="itemImage">
+                    {item.imageURL && (
+                      <img
+                        src={item.imageURL}
+                        className="flashImg"
+                        alt="abcd"
+                        width="120"
+                        height="120"
+                      />
+                    )}
+                  </div>
+                  <div>
+                    <h3 className="itemName">
+                      <b> {item.name}</b>
+                    </h3>
+                    <p className="itemInfo">
+                      <span className="expDate">
+                        <b>
+                          Exp. Date : {new Date(item.expiryDate).getUTCDate()}/
+                          {new Date(item.expiryDate).getUTCMonth() + 1}/
+                          {new Date(item.expiryDate).getUTCFullYear()}
+                        </b>
+                      </span>
+
+                      <QuantityPicker
+                        value={item.quantity}
+                        onChange={(value) => {
+                          dispatch(
+                            updateItemQuantityAction({
+                              _id: item._id,
+                              quantity: value
+                            })
+                          );
+                        }}
+                        min={0}
+                        smooth
+                      />
+                      {item.calories && (
+                        <>
+                          <p className="calorieInfo">
+                            Calories : {item.calories}{' '}
+                          </p>
+                        </>
+                      )}
+                    </p>
+                  </div>
+                </div>
+                <div className="byProd-butn">
+                  {/* {item.byProduct &&
               item.byProduct.map((bp) => (
                 <>
                   <OverlayTrigger 
@@ -206,22 +213,38 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
               </OverlayTrigger> 
               
                 </>
-              ))}
-              
-            <div className="card-buttons">
-              <button
-                className="deleteBtn"
-                onClick={() => {
-                  deleteItem(item._id);
-                }}
-              >
-                Delete
-              </button>
-              <button className="donatBtn">Donate</button>
+              ))} */}
+
+                  <div className="card-buttons">
+                    <button
+                      className="deleteBtn"
+                      onClick={() => {
+                        deleteItem(item._id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                    <button className="donatBtn">Donate</button>
+                  </div>
+                </div>
+              </div>
+              <div>
+                {item.byProduct &&
+                  item.byProduct.map((bp) => (
+                    <div className="batItems" key={item._id}>
+                      <div className="byProductData">
+                        <h3 className="itemName" ><b>{bp.itemByproduct} </b></h3>
+                        <p className="byProdInfo">{bp.use}</p>
+                        {bp.videoURL && (
+                          <p className="byProdVid"><u><a href={bp.videoURL} target="_blank">Watch video for more Info!</a></u></p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+              </div>
             </div>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
