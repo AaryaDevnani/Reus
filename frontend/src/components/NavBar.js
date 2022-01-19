@@ -70,6 +70,16 @@ function NavBar() {
               <li>
                 {' '}
                 <NavLink
+                  to="/shoppingList"
+                  className="hoverLine"
+                  style={navLinkStyle}
+                >
+                  Shopping List
+                </NavLink>
+              </li>
+              <li>
+                {' '}
+                <NavLink
                   to="/recipes"
                   className="hoverLine"
                   style={navLinkStyle}
