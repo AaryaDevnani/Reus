@@ -2,17 +2,33 @@
     display: flex;
     width: 100%;
 }
+.itemData{
+    display: flex;
+    padding-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+
+}
+.byData{
+    font-size: 15px;
+    padding-top: 10px;
+    width: 100%;
+    border-top: solid 1px rgba(15, 172, 93, 0.733);
+}
 
 .catItems{
     color: black !important;
     min-height: 50px;
     margin: 20px 10px;
   padding: 30px;
-  display: flex;
   border-radius: 20px;
 background: #cff2e6;
 box-shadow:  9px 9px 18px #b2d0c6,
            -9px -9px 18px #ecffff;
+           max-width: 500px;
+           height: fit-content;
+  
+
 
 }
 .noCatItems{
@@ -89,6 +105,12 @@ a:hover{
     color: darkcyan;
 }
 button.modal-btn.butn.btn-primary {
+    margin-top: 40px;
+    background-color: darkcyan !important;
+    margin-left: 0px;
+}
+
+button.modal-btn.butn.btn-primary :hover {
     margin-top: 40px;
     background-color: darkcyan !important;
     margin-left: 0px;

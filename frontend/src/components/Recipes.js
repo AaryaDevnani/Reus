@@ -32,7 +32,6 @@ function Recipes() {
     const app_key = '2062231e1e23e9cfc408fa3516285253d8';
     const apiURL = `https://api.edamam.com/api/recipes/v2?type=public&q=${searchFinal}&app_id=${appID}&app_key=%${app_key}`;
     try {
-      
       const response = await fetch(apiURL, {
         method: 'GET',
         headers: {
@@ -40,10 +39,9 @@ function Recipes() {
         }
       });
       const data = await response.json();
-      console.log({data})
       setRecipes(data.hits);
     } catch (error) {
-      console.log({error})
+      console.log({ error });
     }
   };
 
@@ -89,9 +87,13 @@ function Recipes() {
           <div className="invItems">
             Ingredients
             <div className="btns">
-                {ingredients.map(ingredient=>(
-                    <input type="button" className="butn pill" value={ingredient.name} /> 
-                ))}
+              {ingredients.map((ingredient) => (
+                <input
+                  type="button"
+                  className="butn pill"
+                  value={ingredient.name}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -101,17 +103,18 @@ function Recipes() {
               <p>{recipe.label}</p>
               <div className="recipeCard">
                 {recipe.images.THUMBNAIL ? (
-
-                <img
-                  className="recipeImage"
-                  src={recipe.images.THUMBNAIL.url}
-                />
-                ): (<img
-                  className="recipeImage"
-                  src={recipe.image}
-                  height={100}
-                  width={100}
-                />)}
+                  <img
+                    className="recipeImage"
+                    src={recipe.images.THUMBNAIL.url}
+                  />
+                ) : (
+                  <img
+                    className="recipeImage"
+                    src={recipe.image}
+                    height={100}
+                    width={100}
+                  />
+                )}
                 <ul>
                   {recipe.ingredients.map((i) => (
                     <li>{i.text}</li>
