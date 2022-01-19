@@ -80,6 +80,16 @@ function NavBar() {
               <li>
                 {' '}
                 <NavLink
+                  to="/donate"
+                  className="hoverLine"
+                  style={navLinkStyle}
+                >
+                  Donate
+                </NavLink>
+              </li>
+              <li>
+                {' '}
+                <NavLink
                   to="/logout"
                   className="hoverLine"
                   style={navLinkStyle}

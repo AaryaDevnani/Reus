@@ -1,5 +1,8 @@
 import React, { useEffect,useState } from 'react';
 import { useParams } from 'react-router';
+import { Alert, Table, Button, CardGroup, Card, Container, Row, Col } from 'react-bootstrap';
+import './styles/Recipe.css';
+import home_img6 from '../images/home_img6.png';
 
 function Recipe() {
   const recipeId = useParams()
@@ -27,15 +30,26 @@ function Recipe() {
     getRecipes()
     
   }, []);
-  return (
-  <div>
-  <div className='text-dark'>
-  {
-      <div>{ings.label}</div>
-    }
-  </div>
-  </div>
-  
-  )}
+  return (<div>
+    <Container>
+                <Row>
+                        <Col sm={6}>
+                                <img className='recipeI' src={home_img6} alt="" />
+                        </Col>
+                        <Col sm={6}>
+                                <p className='name'>Recipe Name</p>
+                        </Col>   
+                </Row>
+        </Container>
+        <Row>
+        <div>
+          <p className='ingredients'>Ingredients: </p>
+        </div>
+        <div>
+          <p className='steps'>Steps: </p>
+        </div>
+        </Row>
+        </div>
+  )};
 
 export default Recipe;
