@@ -23,7 +23,7 @@ function Recipebyproduct({ingredients, byproducts}) {
                     <div className='ing2'>Byproduct: {bp.itemByproduct}</div>
                     <div className='ing3'>Use: {bp.use}</div>
 
-                     {bp.videoURL ? (<div className='ing4'> Video: Watch video<a href={bp.videoURL}> here </a></div>) : (<div> </div>)}
+                     {bp.videoURL ? (<div className='ing4'> Video: Watch video<a target="_blank" href={bp.videoURL}> here </a></div>) : (<div> </div>)}
                      <div className='border'></div>
                     </div>
                 ))
