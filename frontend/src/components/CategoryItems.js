@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react';
 import './styles/CategoryItems.css';
 import ItemList from './ItemList';
 import CategoryFilter from './CategoryFilter';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
 import AddItem from './AddItem';
+import { storeItemsAction } from '../actions';
 
 function CategoryItem() {
   const { userId } = useSelector((state) => state.auth);
+  const { inventory } = useSelector((state) => state.items);
+
+  const dispatch = useDispatch();
 
   const [categories, setCategories] = useState([
     { title: 'Vegetables', id: 0 },
@@ -19,7 +23,7 @@ function CategoryItem() {
     { title: 'Grains', id: 6 },
     { title: 'Other', id: 7 }
   ]);
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(inventory);
   const [byProducts, setByProducts] = useState([]);
 
   const [selectedCategoryId, setSelectedCategoryId] = useState(
@@ -60,11 +64,14 @@ function CategoryItem() {
     if (!data.error === '') return data.error;
     else {
       setItems(data.items);
+      dispatch(storeItemsAction(data.items));
     }
   };
 
   useEffect(() => {
-    getItems();
+    if (!inventory.length > 0) {
+      getItems();
+    }
     getByProducts();
   }, []);
 
