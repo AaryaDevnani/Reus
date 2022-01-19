@@ -7,7 +7,7 @@ import home_img6 from '../images/home_img6.png';
 function Recipe() {
   const recipeId = useParams()
   const [ings,setIngs] = useState([])
-  const getRecipes = async () => {
+  const getRecipe = async () => {
     const appID = 'a670aefe';
     const app_key = '2062231e1e23e9cfc408fa3516285253d8';
     const apiURL = `https://api.edamam.com/api/recipes/v2/${recipeId.id}?type=public&app_id=${appID}&app_key=%${app_key}`;
@@ -20,35 +20,49 @@ function Recipe() {
         }
       });
       const data = await response.json();
-      console.log(data.recipe)
       setIngs(data.recipe)
+      console.log(data.recipe)
     } catch (error) {
       console.log({error});
       alert(error.message);
     }
   };
   useEffect(() => {
-    getRecipes()
+    getRecipe()
     
   }, []);
+
+  
   return (<div>
     <Container>
                 <Row>
-                        <Col sm={6}>
-                                <img className='recipeI' src={home_img6} alt="" />
+                        <Col sm={2}>
+                                <img className='recipeI' src={ings.image} alt="" />
                         </Col>
                         <Col sm={6}>
-                                <p className='name'>Recipe Name</p>
+                                <p className='name'>{ings.label}</p>
                         </Col>   
                 </Row>
         </Container>
         <Row>
+        <Col sm={6}>
         <div>
           <p className='ingredients'>Ingredients: </p>
         </div>
         <div>
-          <p className='steps'>Steps: </p>
+        <ul className='ingText'>
+                   {ings.ingredients && ings.ingredients.map((i)=>(
+                      <li>{i.text}</li>
+                  ))
+                  } 
+                </ul>
         </div>
+        </Col>
+        <Col sm={6}>
+        <div className='j'>
+          <a href={ings.url} target = "_blank"className='steps'>View Steps Here</a>
+        </div>
+        </Col>
         </Row>
         </div>
   )};
