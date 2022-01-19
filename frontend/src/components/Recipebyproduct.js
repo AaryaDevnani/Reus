@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import './styles/Recipebyproduct.css';
 
 function Recipebyproduct({ingredients, byproducts}) {
 
@@ -19,13 +20,16 @@ function Recipebyproduct({ingredients, byproducts}) {
     
     return (
         <div item>
-            <p className="byproducts">Byproducts</p>
+            <p className='byproduct' >Byproducts</p>
             {itemsWithByProducts.map((items)=>(
                 items.byProducts.map((bp)=>(
-                    <div>
-                    <div>{bp.itemName}</div>
-                    <div>{bp.itemByproduct}</div>
-                    <div>{bp.use}</div>
+                    <div >
+                    <div className='ing' >Ingredient: {bp.itemName}</div>
+                    <div className='ing2'>Byproduct: {bp.itemByproduct}</div>
+                    <div className='ing3'>Use: {bp.use}</div>
+
+                     {bp.videoURL ? (<div className='ing4'> Video: Watch video<a href={bp.videoURL}> here </a></div>) : (<div> </div>)}
+                     <div className='border'></div>
                     </div>
                 ))
             ))}

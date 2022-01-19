@@ -5,6 +5,7 @@ import AddItem from './AddItem';
 import { Button } from 'react-bootstrap';
 import { QuantityPicker } from 'react-qty-picker';
 import { deleteItemsAction, updateItemQuantityAction } from '../actions';
+import { Link, NavLink } from 'react-router-dom';
 
 function ItemList({ items, setItems, selectedCategory, byProducts }) {
   const dispatch = useDispatch();
@@ -101,6 +102,9 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
           handleAddItemSubmit={handleAddItemSubmit}
           onHide={() => setModalShow(false)}
         />
+        <Link to="/shoppingList" className="btn btn-primary">
+          Grocery List
+        </Link>
       </div>
 
       <div className="itemList">
