@@ -107,6 +107,8 @@ router.delete("/:id", async (req, res) => {
   } catch (error) {
     res.status(400).json({ error });
   }
+  //add to shopping list on delete
+  
 });
 
 module.exports = router;

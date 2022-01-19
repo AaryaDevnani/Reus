@@ -13,6 +13,11 @@ export const storeItemsAction = (items) => ({
   payload: items
 });
 
+export const deleteItemsAction = (itemId) => ({
+  type: 'DELETE_ITEMS',
+  payload: itemId
+});
+
 export const updateItemQuantityAction = (payload) => ({
   type: 'UPDATE_QTY',
   payload
