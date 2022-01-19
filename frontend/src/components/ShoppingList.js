@@ -7,6 +7,7 @@ import { FaTrash } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 
 
+
 function ShoppingList() {
     
         const { userId } = useSelector((state) => state.auth);
