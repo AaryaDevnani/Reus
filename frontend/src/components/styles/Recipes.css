@@ -23,6 +23,9 @@
 .recipeButton:hover{
   color:#5dbc9d;
 }
+.recipeText{
+  color:black;
+}
 .recipeName{
   font-size:25px !important;
 }
