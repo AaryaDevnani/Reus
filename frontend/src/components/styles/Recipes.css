@@ -13,6 +13,24 @@
     padding-bottom: 20px;
     padding-right: 10px;      
 }
+.byproduct {
+  color: black;
+  font-size: 21px !important;
+  font-weight: 600;
+ margin-right: 60px;
+}
+.ingr {
+  color: black;
+  font-size: 21px !important;
+  font-weight: 600;
+  margin-right: 60px;
+}
+.recp {
+  color: black;
+  font-size: 21px !important;
+  font-weight: 600;
+  margin-left: 100px;
+}
 .invItems{
     border-radius: 25px;
     background: #cff2e6;
@@ -20,7 +38,11 @@
              -9px -9px 18px #eeffff;
     color: black; 
     padding-bottom: 20px;
-    margin-top:20px;        
+    margin-top:20px;    
+    margin-bottom: 20px; 
+    margin-left: -40px;
+    margin-right: 30px;
+    padding-top: 10px; 
 }
 .pill{
   color: black;  
@@ -42,6 +64,7 @@
 .input-group{
   margin-left: 40%;
   width:auto;
+  margin-top: 20px;
 }
 .form-outline{
   align-items: center;
@@ -61,10 +84,19 @@ li{
 .recipeImage{
   border-radius: 50%;
   width: 15%;
+  margin-bottom: auto;
 }
 .recipeText{
   width: 75%;
 }
 input.butn.pill {
   border-radius: 25px;
+  background-color: black;
+  margin-top: 20px;
+}
+.rec{
+  color: black;
+  margin-left: 100px;
+  font-size: 25px;
+  font-weight: 600;
 }

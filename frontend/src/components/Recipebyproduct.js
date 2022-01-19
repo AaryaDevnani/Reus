@@ -20,7 +20,7 @@ function Recipebyproduct({ingredients, byproducts}) {
     
     return (
         <div item>
-            <p className='byproduct' >Byproducts</p>
+            {/* <p className='byproduct' >Byproducts</p> */}
             {itemsWithByProducts.map((items)=>(
                 items.byProducts.map((bp)=>(
                     <div >
@@ -34,6 +34,7 @@ function Recipebyproduct({ingredients, byproducts}) {
                 ))
             ))}
         </div>
+        
     )
 }
 
