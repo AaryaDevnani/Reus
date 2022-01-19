@@ -13,7 +13,7 @@ body {
     margin: 0;
 }
 nav {
-    background: #5DBC9D;
+    background: #114d4d;
 }
 nav:after {
     content: "";
@@ -41,7 +41,7 @@ nav ul {
 nav ul li {
     padding: 0;
     display: inline-block;
-    background: #5DBC9D;
+    background: #114d4d;
     margin: 0 5px;
 }
 nav ul li a {
@@ -55,7 +55,7 @@ nav ul li a {
 nav ul li a:hover {
     color: #000000;
     text-decoration: none;
-    border-bottom: 2px solid #000000;
+    border-bottom: 2px solid #ffffff;
 }
 nav ul ul li a:hover {
     box-shadow: none;

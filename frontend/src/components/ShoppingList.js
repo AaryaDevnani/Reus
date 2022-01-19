@@ -7,17 +7,57 @@ import { FaTrash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import AddShoppingItem from './AddShoppingItem';
 import {
+  addGroceryItemsAction,
+  deleteGroceryItemsAction,
   storeGroceryItemsAction,
   updateGroceryItemQuantityAction
 } from '../actions';
 
 function ShoppingList() {
   const dispatch = useDispatch();
-
   const { groceries } = useSelector((state) => state.groceries);
 
-  const [modalShow, setModalShow] = React.useState(false);
+  // modal states
   const { userId } = useSelector((state) => state.auth);
+  const [modalShow, setModalShow] = React.useState(false);
+  const [itemInput, setItemInput] = useState({
+    name: '',
+    quantity: 0,
+    userId
+  });
+
+  const handleOnItemInputChange = (e) => {
+    setItemInput({ ...itemInput, [e.target.name]: e.target.value });
+  };
+
+  const addItemOptions = {
+    method: 'POST',
+    body: JSON.stringify(itemInput),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  const addItem = async () => {
+    const response = await fetch('/api/groceries', addItemOptions);
+    const data = await response.json();
+    if (data.error === '') {
+      setItemInput({
+        name: '',
+        quantity: 0
+      });
+      dispatch(addGroceryItemsAction(data.groceryItem));
+      setItems([...items, data.groceryItem]);
+      setModalShow(false);
+    } else {
+      alert(data.error);
+    }
+  };
+
+  const handleAddItemSubmit = (e) => {
+    e.preventDefault();
+    addItem();
+  };
+
   const [items, setItems] = useState(groceries);
   const getGroceries = async () => {
     const response = await fetch(`/api/groceries`, {
@@ -35,15 +75,22 @@ function ShoppingList() {
     }
   };
 
-  const deleteGrocery = async(id)=>{
-    const groceryID = id
-    const response = await fetch(`/api/groceries/${groceryID}`,{
-      method:'DELETE',
-      headers:{
+  const deleteGrocery = async (id) => {
+    const groceryID = id;
+    const response = await fetch(`/api/groceries/${groceryID}`, {
+      method: 'DELETE',
+      headers: {
         'Content-Type': 'application/json'
       }
-    })
-  }
+    });
+    const data = await response.json();
+    if (data.error === '') {
+      setItems(items.filter((i) => i._id !== groceryID));
+      dispatch(deleteGroceryItemsAction(groceryID));
+    } else {
+      alert(data.error);
+    }
+  };
 
   useEffect(() => {
     if (!groceries.length > 0) {
@@ -63,7 +110,13 @@ function ShoppingList() {
           Add Item
         </Button>
 
-        <AddShoppingItem show={modalShow} onHide={() => setModalShow(false)} />
+        <AddShoppingItem
+          show={modalShow}
+          itemInput={itemInput}
+          handleOnItemInputChange={handleOnItemInputChange}
+          handleAddItemSubmit={handleAddItemSubmit}
+          onHide={() => setModalShow(false)}
+        />
       </>
       <div className="list-items">
         <div>
@@ -92,7 +145,13 @@ function ShoppingList() {
                   width="8rem"
                 />
               </p>
-              <button onClick={() => {deleteGrocery(item._id); }} type="button" className="bin col">
+              <button
+                onClick={() => {
+                  deleteGrocery(item._id);
+                }}
+                type="button"
+                className="bin col"
+              >
                 <FaTrash />
               </button>
             </div>
