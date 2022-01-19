@@ -7,6 +7,7 @@ import { FaTrash } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import  AddShoppingItem  from './AddShoppingItem';
 
+
 function ShoppingList() {
     const [modalShow, setModalShow] = React.useState(false);
         const { userId } = useSelector((state) => state.auth);

@@ -52,6 +52,17 @@ const AddItem = (props) => {
               />
             </div>
             <div className="form-contro">
+            <label className="label">Image URL</label>
+              <input
+                type="text"
+                id='img'
+                name="imageURL"
+                placeholder="Enter image url"
+                value={itemInput.imageURL}
+                onChange={handleOnItemInputChange}
+              />
+            </div>
+            <div className="form-contro">
               <label className="label">
                 Category:&nbsp;&nbsp;
                 <select name="category" onChange={handleOnItemInputChange}>
@@ -66,19 +77,6 @@ const AddItem = (props) => {
                   <option value="Grains">Grains</option>
                   <option value="Other">Other</option>
                 </select>
-              </label>
-            </div>
-            <div className="form-contro">
-              <label className="label" for="img">
-                Select Image:&nbsp;&nbsp;
-                <input
-                  type="file"
-                  id="img"
-                  name="imageURL"
-                  accept="image/*"
-                  value={itemInput.imageURL}
-                  onChange={handleOnItemInputChange}
-                ></input>
               </label>
             </div>
             <input

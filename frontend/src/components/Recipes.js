@@ -22,8 +22,8 @@ function Recipes() {
     if (!data.error === '') return data.error;
     else {
       setIngredients(data.items);
-      setSearch(data.items[0].name);
-      setSearchFinal(data.items[0].name);
+      // setSearch(data.items[0].name);
+      // setSearchFinal(data.items[0].name);
     }
   };
 
@@ -60,8 +60,9 @@ function Recipes() {
   };
 
   useEffect(() => {
-    getIngredients();
     getRecipes(items);
+    getIngredients();
+    
   }, [searchFinal, items]);
   return (
     <div className="recipePage container">
