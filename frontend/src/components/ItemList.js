@@ -189,19 +189,19 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                 </p>
               </div>
             </div>
-
-            {/* {item.byProduct &&
+            <div className='byProd-butn'>
+            {item.byProduct &&
               item.byProduct.map((bp) => (
                 <>
-                  <OverlayTrigger
+                  <OverlayTrigger 
                 delay={{ hide: 450, show: 300 }}
                 overlay={(props) => (
-                  <Tooltip {...props} >
+                  <Tooltip {...props} className='toolTipText' >
                      Details: {bp.use}
                   </Tooltip>
                 )}
                 placement="bottom"
-                ><Button variant="light">  Use of By-Product: {bp.itemByproduct}</Button>
+                ><p className='byproductText'><u>  Use of By-Product: {bp.itemByproduct}</u></p>
               </OverlayTrigger>
               
                 </>
@@ -216,8 +216,9 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
               >
                 Delete
               </button>
-              <button className="donateBtn">Donate</button>
-            </div> */}
+              <button className="donatBtn">Donate</button>
+            </div>
+            </div>
           </div>
         ))}
       </div>
