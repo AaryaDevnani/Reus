@@ -14,6 +14,10 @@ const itemReducer = (state = initialState, { type, payload }) => {
         return i;
       });
       return { inventory: updatedItems };
+    case 'DELETE_ITEMS': {
+      const updatedItems = state.inventory.filter((i) => i._id !== payload);
+      return { inventory: updatedItems };
+    }
 
     default:
       return state;

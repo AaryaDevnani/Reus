@@ -4,7 +4,7 @@ import './styles/CategoryItems.css';
 import AddItem from './AddItem';
 import { Button } from 'react-bootstrap';
 import { QuantityPicker } from 'react-qty-picker';
-import { updateItemQuantityAction } from '../actions';
+import { deleteItemsAction, updateItemQuantityAction } from '../actions';
 
 function ItemList({ items, setItems, selectedCategory, byProducts }) {
   const dispatch = useDispatch();
@@ -65,6 +65,23 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
   const handleAddItemSubmit = (e) => {
     e.preventDefault();
     addItem();
+  };
+
+  const deleteItem = async (itemId) => {
+    const deleteItemOptions = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    const response = await fetch(`/api/items/${itemId}`, deleteItemOptions);
+    const data = await response.json();
+    if (data.error === '') {
+      setItems(items.filter((i) => i._id !== itemId));
+      dispatch(deleteItemsAction(itemId));
+    } else {
+      alert(data.error);
+    }
   };
 
   return (
@@ -159,7 +176,14 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                 </>
               ))}
             <div className="card-buttons">
-              <button className="deleteBtn">Delete</button>
+              <button
+                className="deleteBtn"
+                onClick={() => {
+                  deleteItem(item._id);
+                }}
+              >
+                Delete
+              </button>
               <button className="donateBtn">Donate</button>
             </div>
           </div>
