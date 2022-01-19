@@ -64,8 +64,6 @@ function Recipes() {
         }
       });
       const data = await response.json();
-      console.log({x: data});
-      
       setRecipes(data.hits);
     } catch (error) {
       alert({ error });
@@ -173,8 +171,7 @@ function Recipes() {
                 ):<div></div>}
                 {<li>Calories: {recipe.calories.toPrecision(4)}</li>}
                 </ul>
-                {console.log(recipe.uri.split("_")[1])}
-                <Link to={`/recipe${recipe.name}`} className="recipeButton" >
+                <Link to={`/recipe/${recipe.uri.split("_")[1]}`} className="recipeButton" >
                   &gt;
                 </Link>
               </div>
