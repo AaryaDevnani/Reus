@@ -6,12 +6,12 @@ const Notification = require("../Models/Notification");
 const generateNotifications = require("../Helpers/generateNotification");
 const Donation = require("../Models/Donations");
 
-router.get("/:userId", async (req, res) => {
-  const userID = req.params.userId
-
-  if (userId) {
+router.get("/", async (req, res) => {
+  const { itemId } = req.query;
+  const { userid } = req.headers;
+  if (itemId) {
     try {
-      const item = await Item.find({"userId":userId});
+      const item = await Item.findById(itemId);
       let error = "";
       if (!item) {
         error = "No item found";
@@ -70,15 +70,15 @@ router.post("/", async (req, res) => {
 });
 
 router.put("/", async (req, res) => {
-  const { userId, booked, bookedBy, quantity, expiryDate, canServe, category } =
+  const { itemId, booked, bookedBy, quantity, expiryDate, canServe, category } =
     req.body;
-  const item = Item.findById(userId);
+  const item = Item.findById(itemId);
   if (!item) {
     return res.status(400).json({ error: "No item found" });
   }
   try {
     await Item.updateOne(
-      { _id: userId },
+      { _id: itemId },
       {
         booked,
         bookedBy,
