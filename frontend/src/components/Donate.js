@@ -57,7 +57,7 @@ function Donate() {
             </p>
             </Alert>
             </button>
-        )
+        
             </div>
 
             <div className='howWorks'>

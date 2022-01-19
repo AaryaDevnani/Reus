@@ -92,6 +92,9 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
+      },
+      body:{
+        'type':'grocery'
       }
     };
     const response = await fetch(`/api/items/${itemId}`, deleteItemOptions);
@@ -127,6 +130,7 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
       </div>
 
       <div className="itemList">
+        <p className='itms'> Items </p>
         {currentItems.length === 0 && (
           <div className="noCatItems">
             <img
@@ -199,7 +203,7 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                 )}
                 placement="bottom"
                 ><p className='byproductText'><u>  Use of By-Product: {bp.itemByproduct}</u></p>
-              </OverlayTrigger>
+              </OverlayTrigger> 
               
                 </>
               ))}

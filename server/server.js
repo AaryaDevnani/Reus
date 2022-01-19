@@ -31,14 +31,16 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 const userRoute = require("./Routes/Auth");
 const itemRoute = require("./Routes/Item");
-const groceryItemRoute = require("./Routes/GroceyItem");
+const groceryItemRoute = require("./Routes/GroceryItem");
 const ByproductRoute = require("./Routes/Byproduct");
+const donationRoute = require("./Routes/Donation");
 
 // Routes middlewares
 app.use("/api/user", userRoute);
 app.use("/api/items", itemRoute);
 app.use("/api/groceries", groceryItemRoute);
 app.use("/api/byproduct",ByproductRoute);
+app.use("/api/donation",donationRoute);
 
 const checkExpirations = require("./Helpers/checkExpirations");
 
