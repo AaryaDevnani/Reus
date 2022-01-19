@@ -95,7 +95,7 @@ function Recipes() {
             value={search}
             onChange={handleOnChange}
           />
-          <label className="form-label" for="form1">
+          <label className="form-label" >
             Search
           </label>
         </div>
@@ -116,6 +116,7 @@ function Recipes() {
             <div className="btns">
               {ingredients.map((ingredient) => (
                   <input
+                    key={ingredient._id}
                     type="button"
                     className={adding.includes(ingredient.name) ? "butn pill pill-active" : "butn pill pill-inactive"}
                     value={ingredient.name}
@@ -139,6 +140,7 @@ function Recipes() {
                   <img
                     className="recipeImage"
                     src={recipe.images.THUMBNAIL.url}
+                    alt=""
                   />
                 ) : (
                   <img
@@ -146,6 +148,7 @@ function Recipes() {
                     src={recipe.image}
                     height={100}
                     width={100}
+                    alt=""
                   />
                 )}
                 <ul className='recipeText'>
