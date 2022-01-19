@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
   });
   try {
     await groceryItem.save();
-    res.status(201).json({ error: "" });
+    res.status(201).json({ error: "", groceryItem });
   } catch (error) {
     res.status(400).json({ error });
   }

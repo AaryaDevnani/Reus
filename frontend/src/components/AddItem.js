@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useHistory, useLocation, NavLink } from 'react-router-dom';
+import React from 'react';
 import './styles/AddItem.css';
 import { Modal, Button } from 'react-bootstrap';
 
@@ -52,10 +51,10 @@ const AddItem = (props) => {
               />
             </div>
             <div className="form-contro">
-            <label className="label">Image URL</label>
+              <label className="label">Image URL</label>
               <input
                 type="text"
-                id='img'
+                id="img"
                 name="imageURL"
                 placeholder="Enter image url"
                 value={itemInput.imageURL}
