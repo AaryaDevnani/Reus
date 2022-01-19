@@ -7,7 +7,6 @@ import { Modal, Button } from 'react-bootstrap';
 import AddItem from './AddItem';
 
 function CategoryItem() {
-   
   const { userId } = useSelector((state) => state.auth);
 
   const [categories, setCategories] = useState([
@@ -71,7 +70,6 @@ function CategoryItem() {
 
   return (
     <div className="categoryFilter">
-       
       <CategoryFilter
         categories={categories}
         selectedCategory={selectedCategory}
@@ -79,6 +77,7 @@ function CategoryItem() {
       />
       <ItemList
         items={items}
+        setItems={setItems}
         byProducts={byProducts}
         selectedCategory={selectedCategory}
       />
