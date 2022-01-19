@@ -1,11 +1,37 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useHistory, useLocation , NavLink} from 'react-router-dom';
 import { Button, CardGroup, Card, Container, Row, Col } from 'react-bootstrap';
 import "./styles/ShoppingList.css";
 import { QuantityPicker } from 'react-qty-picker';
 import { FaTrash } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+
 
 function ShoppingList() {
+    
+        const { userId } = useSelector((state) => state.auth);
+        const [items, setItems] = useState([]);
+        const getGroceries = async () => {
+          const response = await fetch(`/api/groceries`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              UserId: userId
+            }
+          });
+          const data = await response.json();
+          console.log(data);
+          if (!data.error === '') return data.error;
+          else {
+            // setItems(data.items);
+            // console.log({items: data.groceryItems});
+          }
+        };
+
+        useEffect(() => {
+            getGroceries();
+          }, []);
+
     return (
         <div className="dashboardPage">
             <p className='intro'>Your Shopping List</p>

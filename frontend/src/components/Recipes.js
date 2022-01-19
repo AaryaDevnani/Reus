@@ -5,8 +5,8 @@ import { FaSearch } from 'react-icons/fa';
 
 function Recipes() {
   const { userId } = useSelector((state) => state.auth);
-  const [search, setSearch] = useState('Potato');
-  const [searchFinal, setSearchFinal] = useState('Potato');
+  const [search, setSearch] = useState('Brocolli');
+  const [searchFinal, setSearchFinal] = useState('Brocolli');
   const [recipes, setRecipes] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [items, setItems] = useState([]);
@@ -26,6 +26,12 @@ function Recipes() {
       setSearchFinal(data.items[0].name);
     }
   };
+
+  const getByproducts = async()=>{
+    const response = await fetch(`api/byproducts`,{
+      
+    })
+  }
 
   const getRecipes = async (items) => {
     const appID = 'a670aefe';
@@ -54,8 +60,8 @@ function Recipes() {
   };
 
   useEffect(() => {
-    getRecipes(items);
     getIngredients();
+    getRecipes(items);
   }, [searchFinal, items]);
   return (
     <div className="recipePage container">
@@ -115,7 +121,7 @@ function Recipes() {
                     width={100}
                   />
                 )}
-                <ul>
+                <ul className='recipeText'>
                   {recipe.ingredients.map((i) => (
                     <li>{i.text}</li>
                   ))}
