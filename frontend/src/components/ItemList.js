@@ -4,7 +4,11 @@ import './styles/CategoryItems.css';
 import AddItem from './AddItem';
 import { Button } from 'react-bootstrap';
 import { QuantityPicker } from 'react-qty-picker';
-import { deleteItemsAction, updateItemQuantityAction } from '../actions';
+import {
+  addItemsAction,
+  deleteItemsAction,
+  updateItemQuantityAction
+} from '../actions';
 import { Link, NavLink } from 'react-router-dom';
 
 function ItemList({ items, setItems, selectedCategory, byProducts }) {
@@ -56,6 +60,7 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
         category: '',
         imageURL: ''
       });
+      dispatch(addItemsAction(data.newItem));
       setItems([...items, data.newItem]);
       setModalShow(false);
     } else {

@@ -4,13 +4,21 @@ import { Button, CardGroup, Card, Container, Row, Col } from 'react-bootstrap';
 import './styles/ShoppingList.css';
 import { QuantityPicker } from 'react-qty-picker';
 import { FaTrash } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AddShoppingItem from './AddShoppingItem';
+import {
+  storeGroceryItemsAction,
+  updateGroceryItemQuantityAction
+} from '../actions';
 
 function ShoppingList() {
+  const dispatch = useDispatch();
+
+  const { groceries } = useSelector((state) => state.groceries);
+
   const [modalShow, setModalShow] = React.useState(false);
   const { userId } = useSelector((state) => state.auth);
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(groceries);
   const getGroceries = async () => {
     const response = await fetch(`/api/groceries`, {
       method: 'GET',
@@ -23,13 +31,15 @@ function ShoppingList() {
     if (!data.error === '') return data.error;
     else {
       setItems(data.groceryItems);
-      console.log(data);
+      dispatch(storeGroceryItemsAction(data.groceryItems));
     }
   };
 
   useEffect(() => {
-    getGroceries();
-  }, []);
+    if (!groceries.length > 0) {
+      getGroceries();
+    }
+  }, [groceries]);
 
   return (
     <div className="dashboardPage">
@@ -57,7 +67,20 @@ function ShoppingList() {
             <div className="row list-item">
               <h3 className="col name">{item.name}</h3>
               <p className="col qty">
-                <QuantityPicker min={1} smooth width="8rem" />
+                <QuantityPicker
+                  min={1}
+                  value={item.quantity}
+                  onChange={(value) => {
+                    dispatch(
+                      updateGroceryItemQuantityAction({
+                        _id: item._id,
+                        quantity: value
+                      })
+                    );
+                  }}
+                  smooth
+                  width="8rem"
+                />
               </p>
               <button type="button" className="bin col">
                 <FaTrash />
