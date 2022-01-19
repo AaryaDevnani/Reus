@@ -4,6 +4,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import "./styles/Home.css";
 import home_img from '../images/home_img.jpg';
 import home_img5 from '../images/home_img5.png';
+import home_img6 from '../images/home_img6.png';
+import home_img7 from '../images/home_img7.jpg';
 
 
 function Home() {
@@ -71,7 +73,33 @@ function Home() {
                 </Row>
         </Container>
 
-        <p className='heh'>Get started here!</p>
+        <p className='heh'>Key Features!</p>
+        <Container>
+                <Row>
+                        <Col sm={6}>
+                                <img className='image' src={home_img6} />
+                        </Col>
+
+                        <Col sm={6}>
+                        <h5 className='text'>Track your food and keep the expiration dates in check</h5>
+                        </Col>
+                </Row>
+        </Container>
+
+        <Container>
+                <Row>
+                        <Col sm={6}>
+                                <h5 className='text'> 
+                                Make a conscious effort to reduce food waste
+                                </h5>
+                        </Col>
+
+                        <Col sm={6}>
+                                <img className='image2' src={home_img7} />
+                        </Col>
+                </Row>
+        </Container>
+
 
         </div>
         )

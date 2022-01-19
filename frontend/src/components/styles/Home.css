@@ -11,6 +11,7 @@
     font-size: 17px;
     margin-top: 130px !important;
     text-align: justify;
+    font-weight: 600;
   }
    .image{
      width: 350px;
@@ -52,5 +53,10 @@
   .text3{
     margin-top: 150px !important;
   }
-
-  
+/* .text4{
+  font-weight: 600 !important;
+}
+.text5{
+  font-weight: 600 !important;
+}
+   */
