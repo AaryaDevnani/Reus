@@ -12,6 +12,7 @@ import CategoryItems from './components/CategoryItems';
 import ShoppingList from './components/ShoppingList';
 import AddItem from './components/AddItem';
 import Calendar from './components/Calendar';
+import AddShoppingItem from './components/AddShoppingItem';
 function App() {
   return (
     <Router>
@@ -29,6 +30,7 @@ function App() {
               <Route exact path='/shoppingList' element={<ShoppingList/>} />
               <Route exact path='/addItem' element={<AddItem/>} />
               <Route exact path='/calendar' element={<Calendar/>} />
+              <Route exact path='/addShoppingItem' element={<AddShoppingItem/>} />
 
           </Routes>
         </header>
