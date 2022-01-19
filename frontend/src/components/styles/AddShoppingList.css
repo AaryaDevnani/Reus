@@ -122,6 +122,9 @@ input.butn.butn-block.add-item {
     margin-right: 20px;
     margin-top: -10px;
 }
+input#img {
+    background-color: white;
+}
 
   
   

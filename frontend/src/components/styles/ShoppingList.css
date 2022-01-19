@@ -69,6 +69,7 @@
     text-align: center;
     margin-right: 0px;
     margin-left: -370px;
+    margin-bottom: -20px;
 }
 .quantity{
     margin-left: 250px;
@@ -80,4 +81,8 @@
 .remove{
     margin-left: 630px;
     margin-top: -40px;
+}
+.butt{
+  margin-left: 260px;
+  margin-top: -40px;
 }
