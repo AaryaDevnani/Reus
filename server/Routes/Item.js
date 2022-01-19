@@ -99,22 +99,21 @@ router.delete("/:id", async (req, res) => {
   const itemId = req.params.id;
   const item = await Item.findById(itemId);
   const groceryItem = new GroceryItem({
-    name:item.name,
-    userId:item.userId,
-    quantity:item.quantity
+    name: item.name,
+    userId: item.userId,
+    quantity: 1
   });
   if (!item) return res.status(202).json({ error: "" });
   try {
     await Item.deleteOne({
       _id: itemId
     });
-    await groceryItem.save()
+    await groceryItem.save();
     await Notification.deleteMany({ itemId }, { multi: true });
     res.status(202).json({ error: "" });
   } catch (error) {
     res.status(400).json({ error });
   }
-  
 });
 
 module.exports = router;
