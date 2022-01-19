@@ -42,16 +42,7 @@ box-shadow:  9px 9px 18px #b2d0c6,
 }
 
 .categories{
-    border-radius: 43px;
-    width: 100%;
-    box-shadow:  14px 14px 21px #aecbc1,
-             -14px -14px 21px #f0ffff;
-             z-index: 1;
-    font-size: 17px;
-    background: #def3ec;
-    padding: 10px 50px;
-    width: 100%;
-    margin-top: 20px ;
+    margin-top: 15px ;
     margin-right: 20px;
 }
 
@@ -64,13 +55,34 @@ box-shadow:  9px 9px 18px #b2d0c6,
 .catLink{
     color: black;
        background-color: #def3ec;
+       border-radius: 43px;
+    width: 100%;
+    font-size: 17px;
+    background: #def3ec;
+    padding: 10px 50px;
+    width: 100%;
+    box-shadow:  8px 8px 16px #bdcfc9,
+             -8px -8px 16px #ffffff;
+             z-index: 1;
 }
-.catLink :hover{
+.catLink:hover{
     color: darkcyan;
 }
 .catLinkActive{
-    background-color: #def3ec !important;
-    color: darkcyan;
+    color: #fafafa;
+    background-color: darkcyan !important;
+    border-radius: 43px;
+ width: 100%;
+ font-size: 17px;
+ background: #def3ec;
+ padding: 10px 50px;
+ width: 100%;
+ box-shadow:  8px 8px 16px #bdcfc9,
+                -8px -8px 16px #ffffff;
+          z-index: 1;
+}
+.catLinkActive:hover{
+    color: black !important ;
 }
 
 .itemList{
@@ -94,9 +106,13 @@ box-shadow:  9px 9px 18px #b2d0c6,
     margin: 2px;
     font-size: 15px;
 }
+.expDate{
+    font-size: 17px;
+}
 .category{
     color: black;
     text-align: center;
+    justify-content: center;
 }
 a{
     text-decoration: none;
@@ -127,3 +143,28 @@ button.modal-btn.butn.btn-primary :hover {
   margin-left: 40px ;
   margin-top: 30px;;
 }
+
+.deleteBtn{
+    color: #fafafa;
+    background-color: #F32C52;
+    padding: 5px 15px;
+    font-size: 15px;
+    border-radius: 20px;
+}
+.deleteBtn:hover{
+    background-color: rgb(116, 27, 27);
+}
+
+.donateBtn{
+    color: #fafafa;
+    background-color: #80CEE1;
+    padding: 5px 15px;
+    font-size: 15px;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+.donateBtn:hover{
+    background-color: #2b788b;
+}
+

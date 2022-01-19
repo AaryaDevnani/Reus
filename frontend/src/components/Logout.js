@@ -6,7 +6,7 @@ function Logout() {
   const dispatch = useDispatch();
   const logoutUser = async () => {
     await dispatch(logoutUserAction());
-    window.location.replace('http://localhost:3000/');
+    window.location.replace('http://localhost:3000/login');
   };
   logoutUser();
 

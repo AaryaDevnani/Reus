@@ -7,6 +7,7 @@ import { FaTrash } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 
 
+
 function ShoppingList() {
     
         const { userId } = useSelector((state) => state.auth);
@@ -20,11 +21,10 @@ function ShoppingList() {
             }
           });
           const data = await response.json();
-          console.log(data);
           if (!data.error === '') return data.error;
           else {
-            // setItems(data.items);
-            // console.log({items: data.groceryItems});
+            setItems(data.groceryItems);
+            console.log(data)
           }
         };
 
@@ -32,11 +32,11 @@ function ShoppingList() {
             getGroceries();
           }, []);
 
+
+          
     return (
         <div className="dashboardPage">
             <p className='intro'>Your Shopping List</p>
-             {/* <p className='heh2'>Item</p>
-             <p className='heh3'>Quantity</p> */}
             
             <div className='list-items'> 
             <div className='list-item1'>
@@ -47,64 +47,19 @@ function ShoppingList() {
                 </div>
             </div>
         
-            <div className='list-item'>
-                <div>
-                <h3 className='flashName'>Burger</h3> 
-                <p className='flashData'><QuantityPicker min={0} smooth/></p>
-                <Button variant='outline-dark' className='btn1'>Delete </Button>
-               
-                </div>
-            </div>
-            <div className='list-item'>
-                <div>
-                <h3 className='flashName'>Burger</h3> 
-                <p className='flashData'><QuantityPicker min={0} smooth/></p>
-                <Button variant='outline-dark' className='btn1'>Delete </Button>
-                </div>
-            </div>
-            <div className='list-item'>
-                <div>
-                <h3 className='flashName'>Burger</h3> 
-                <p className='flashData'><QuantityPicker min={0} smooth/></p> 
-                <Button variant='outline-dark' className='btn1'>Delete </Button>
-                </div> 
-            </div>
-            <div className='list-item'>
-                <div>
-                <h3 className='flashName'>Burger</h3> 
-                <p className='flashData'><QuantityPicker min={0} smooth/></p> 
-                <Button variant='outline-dark' className='btn1'>Delete</Button>
-                </div>
-            </div>
-            <div className='list-item'>
-                <div>
-                <h3 className='flashName'>Burger</h3> 
-                <p className='flashData'><QuantityPicker min={0} smooth/></p>
-                <Button variant='outline-dark' className='btn1'>Delete</Button>
-                </div>
-            </div>
-            <div className='list-item'>
-                <div>
-                <h3 className='flashName'>Burger</h3> 
-                <p className='flashData'><QuantityPicker min={0} smooth/></p>
-                <Button variant='outline-dark' className='btn1'>Delete</Button>
-                </div>
-            </div>
-            <div className='list-item'>
-                <div>
-                <h3 className='flashName'>Burger</h3> 
-                <p className='flashData'><QuantityPicker min={0} smooth/></p>
-                <Button variant='outline-dark' className='btn1'>Delete</Button>
-                </div>
-            </div>
-            <div className='list-item'>
-                <div>
-                <h3 className='flashName'>Burger</h3> 
-                <p className='flashData'><QuantityPicker min={0} smooth/></p>
-                <Button variant='outline-dark' className='btn1'>Delete</Button>
-                </div>
+            
                 
-            </div>
+                    {items.map((item) => (
+                        <div className='list-item'>
+                        <div>
+                        <h3 className='flashName'>{item.name}</h3> 
+                        <p className='flashData'><QuantityPicker min={0} smooth/></p>
+                        <Button variant='outline-dark' className='btn1'>Delete </Button>
+                        </div>
+                        </div>
+                      ))}
+            
+            
             </div> 
         </div>
     )
