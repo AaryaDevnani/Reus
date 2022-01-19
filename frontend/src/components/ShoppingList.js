@@ -33,7 +33,7 @@ function ShoppingList() {
 
   return (
     <div className="dashboardPage">
-      <p className="intro">Your Shopping List</p>
+      <p className="intro">Your Grocery List</p>
       <>
         <Button
           className="butt"
