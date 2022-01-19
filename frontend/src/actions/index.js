@@ -47,3 +47,17 @@ export const deleteGroceryItemsAction = (itemId) => ({
   type: 'DELETE_GROCERY_ITEMS',
   payload: itemId
 });
+
+export const addDonation = (payload) => ({
+  type: 'ADD_DONATION',
+  payload
+});
+
+export const deleteDonation = (payload) => ({
+  type: 'DELETE_DONATION',
+  payload
+});
+export const deleteAllDonation = () => ({
+  type: 'DELETE_ALL_DONATION',
+  payload: ''
+});
