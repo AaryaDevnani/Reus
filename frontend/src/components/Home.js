@@ -7,7 +7,8 @@ import home_img5 from '../images/home_img5.png';
 import home_img6 from '../images/home_img6.png';
 import home_img7 from '../images/home_img7.jpg';
 import reduce from '../images/reduce.jpg';
-// import reduce_r from '..images/reduce_r.png';
+import no_waste from '../images/no_waste.jpg';
+import donation from '../images/donation.png';
 
 
 function Home() {
@@ -84,28 +85,19 @@ function Home() {
         </Container>
 
         <p className='heh2'>Key Features!</p>
-        <Container>
+        <Container className='ft'>
                 <Row>
-                        <Col sm={6}>
-                                <img className='image' src={home_img6} alt="" />
+                        <Col sm={4}>
+                                <img className='image3' src={home_img6} alt="" />
+                                <h3 className='feat'>Keep track of your food and their expiry dates.</h3>
                         </Col>
-
-                        <Col sm={6}>
-                        <h5 className='text2'>Track your food and keep the expiration dates in check</h5>
+                        <Col sm={4}>
+                                <img className='image3' src={no_waste} alt="" />
+                                <h3 className='feat'>Make use of byproducts of food and reduce waste.</h3>
                         </Col>
-                </Row>
-        </Container>
-
-        <Container>
-                <Row>
-                        <Col sm={6}>
-                                <h5 className='text2'> 
-                                Make a conscious effort to reduce food waste
-                                </h5>
-                        </Col>
-
-                        <Col sm={6}>
-                                <img className='image2' src={home_img7} alt="" />
+                        <Col sm={4}>
+                                <img className='image3' src={donation} alt="" />
+                                <h3 className='feat'>Donate excessive food so as to not waste it eventually.</h3>
                         </Col>
                 </Row>
         </Container>

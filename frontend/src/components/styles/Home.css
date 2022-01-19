@@ -25,6 +25,12 @@
     height: 350px;
     margin-top: 50px;
    }
+   .image3{
+    width: 350px;
+   height: 350px;
+   margin-top: 20px;
+   /* margin-left: -50px; */
+ }
    .header{
      color: #006400;
      font-size: 50px !important;
@@ -98,4 +104,18 @@
   background-color: #114D4D;
   color: white;
   margin-left: -100px;
+}
+.ft{
+  /* margin-left: 20px; */
+  margin-bottom: 20px;
+}
+.feat{
+  /* border-radius: 20px !important; */
+  /* background: #114D4D; */
+  color: black;
+  /* margin: 2%; */
+  margin-bottom: 10px;
+  margin-top: 10px;
+  /* margin-right: 20px;
+  margin-left: -5px; */
 }
