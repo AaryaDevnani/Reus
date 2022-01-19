@@ -4,13 +4,14 @@ const Item = require("../Models/Item");
 const GroceryItem = require("../Models/GroceryItem");
 const Notification = require("../Models/Notification");
 const generateNotifications = require("../Helpers/generateNotification");
+const Donation = require("../Models/Donations");
 
-router.get("/", async (req, res) => {
-  const { itemId } = req.query;
-  const { userid } = req.headers;
-  if (itemId) {
+router.get("/:userId", async (req, res) => {
+  const userID = req.params.userId
+
+  if (userId) {
     try {
-      const item = await Item.findById(itemId);
+      const item = await Item.find({"userId":userId});
       let error = "";
       if (!item) {
         error = "No item found";
@@ -69,15 +70,15 @@ router.post("/", async (req, res) => {
 });
 
 router.put("/", async (req, res) => {
-  const { itemId, booked, bookedBy, quantity, expiryDate, canServe, category } =
+  const { userId, booked, bookedBy, quantity, expiryDate, canServe, category } =
     req.body;
-  const item = Item.findById(itemId);
+  const item = Item.findById(userId);
   if (!item) {
     return res.status(400).json({ error: "No item found" });
   }
   try {
     await Item.updateOne(
-      { _id: itemId },
+      { _id: userId },
       {
         booked,
         bookedBy,
@@ -96,20 +97,39 @@ router.put("/", async (req, res) => {
 });
 
 router.delete("/:id", async (req, res) => {
-  const itemId = req.params.id;
-  const item = await Item.findById(itemId);
+  const userId = req.params.id;
+  const { type } = req.body
+  const item = await Item.findById(userId);
   const groceryItem = new GroceryItem({
     name: item.name,
     userId: item.userId,
     quantity: 1
   });
+  const donationItem = new donation({
+    name:item.name,
+    userId,
+    expiryDate:item.expiryDate,
+    quantity:item.quantity,
+    category:item.category,
+    calories:item.calories,
+    imageURL:item.imageURL,
+    canServe:item.canServe,
+    booked:item.booked,
+    bookedBy:item.bookedBy,
+  })
   if (!item) return res.status(202).json({ error: "" });
   try {
     await Item.deleteOne({
-      _id: itemId
+      _id: userId
     });
-    await groceryItem.save();
-    await Notification.deleteMany({ itemId }, { multi: true });
+    if(type==='grocery'){
+      await groceryItem.save();
+    }
+    else if(type==='donation'){
+      await donationItem.save()
+    }
+    
+    await Notification.deleteMany({ userId }, { multi: true });
     res.status(202).json({ error: "" });
   } catch (error) {
     res.status(400).json({ error });
