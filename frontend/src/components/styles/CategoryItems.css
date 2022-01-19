@@ -160,10 +160,8 @@ button.modal-btn.butn.btn-primary :hover {
 
 }
 .addBtn{
-    display: flex;
-  margin-left: 40px ;
-  margin-top: 30px;;
-  display: none;
+  margin-top: 30px;
+  display: block;
 }
 
 .deleteBtn{
@@ -240,7 +238,21 @@ button.modal-btn.butn.btn-primary :hover {
 .bothNames{
     display: flex;
 }
-
+.bottn{
+    width: 150px;
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    font-size: 18px;
+    background-color: #114d4d;
+    padding: 5px 10px;
+    margin-left: 0px;
+    border-radius: 25px;
+    display: block;
+}
+.bottn:hover{
+    color: #cff2ec;
+    background-color: #216363;
+}
 @media only screen and (max-width: 600px){
     .categoryFilter{
         display: block;
