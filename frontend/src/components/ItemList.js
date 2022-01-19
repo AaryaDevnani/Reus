@@ -3,56 +3,78 @@ import './styles/CategoryItems.css';
 import AddItem from './AddItem';
 import { Modal, Button } from 'react-bootstrap';
 
-function ItemList({ items, selectedCategory }) {
-    const [modalShow, setModalShow] = React.useState(false);
-  console.log({ selectedCategory });
-  console.log({ items });
+function ItemList({ items, selectedCategory, byProducts }) {
+  const [modalShow, setModalShow] = React.useState(false);
   const currentItems = items.filter(
     (item) => item.category === selectedCategory.title
   );
+  currentItems.map((curItem) => {
+    curItem['byProduct'] = [];
+    byProducts.map((bp) => {
+      if (curItem.name === bp.itemName) {
+        curItem.byProduct.push(bp);
+      }
+    });
+  });
+  console.log({ currentItems });
   return (
-      <div className='btn-cards'>
-           <div className='addBtn'>
-            <Button className='modal-btn' variant="primary" onClick={() => setModalShow(true)}>
-            Add Item
-            </Button>
-            <AddItem
-            show={modalShow}
-            onHide={() => setModalShow(false)}
+    <div className="btn-cards">
+      <div className="addBtn">
+        <Button
+          className="modal-btn"
+          variant="primary"
+          onClick={() => setModalShow(true)}
+        >
+          Add Item
+        </Button>
+        <AddItem show={modalShow} onHide={() => setModalShow(false)} />
+      </div>
+
+      <div className="itemList">
+        {currentItems.length === 0 && (
+          <div className="noCatItems">
+            <img
+              src="images/product-not-found.jpg"
+              alt="Product Not Found"
+              width="600"
             />
-            </div>
-      
-    <div className="itemList">
-      {currentItems.length === 0 && <div className="noCatItems"><img src='images/product-not-found.jpg'  alt="Product Not Found" width="600"  /></div>}
-      {currentItems.map((item) => (
-        <div className="catItems" key={item._id}>
-          <div className="itemImage">
-            {item.imageURL && (
-              <img
-                src={item.imageURL}
-                className="flashImg"
-                alt="abcd"
-                width="120"
-                height="120"
-              />
-            )}
           </div>
-          <div>
-            <h3 className="itemName"> {item.name} </h3>
-            <p className="itemInfo">
-              Exp. Date : {new Date(item.expiryDate).getUTCDate()}/{new Date(item.expiryDate).getUTCMonth() + 1}/{new Date(item.expiryDate).getUTCFullYear()} <br/>
-              Quantity : {item.quantity} <br/>
-              {item.calories && (
-                 <>Calories : {item.calories}</>
+        )}
+        {currentItems.map((item) => (
+          <div className="catItems" key={item._id}>
+            <div className="itemImage">
+              {item.imageURL && (
+                <img
+                  src={item.imageURL}
+                  className="flashImg"
+                  alt="abcd"
+                  width="120"
+                  height="120"
+                />
               )}
-               </p>
+            </div>
+            <div>
+              <h3 className="itemName"> {item.name} </h3>
+              <p className="itemInfo">
+                Exp. Date : {new Date(item.expiryDate).getUTCDate()}/
+                {new Date(item.expiryDate).getUTCMonth() + 1}/
+                {new Date(item.expiryDate).getUTCFullYear()} <br />
+                Quantity : {item.quantity} <br />
+                {item.calories && <>Calories : {item.calories}</>}
+              </p>
+              {item.byProduct &&
+                item.byProduct.map((bp) => (
+                  <>
+                    <small>Additional Use: {bp.itemByproduct}</small>
+                    <br />
+                    <small>Details: {bp.use}</small>
+                    <br />
+                  </>
+                ))}
+            </div>
           </div>
-          {/* <hr />
-          <div>
-            <h4>Byproducts</h4>
-          </div> */}
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
     </div>
   );
