@@ -3,7 +3,7 @@ const router = express.Router();
 const GroceryItem = require("../Models/GroceryItem");
 
 router.get("/", async (req, res) => {
-  const { userid } = req.header;
+  const { userid } = req.headers;
   try {
     const groceryItems = await GroceryItem.find({ userId: userid });
     res.status(200).json({ error: "", groceryItems });
