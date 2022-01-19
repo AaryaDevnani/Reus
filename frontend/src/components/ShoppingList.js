@@ -27,6 +27,16 @@ function ShoppingList() {
     }
   };
 
+  const deleteGrocery = async(id)=>{
+    const groceryID = id
+    const response = await fetch(`/api/groceries/${groceryID}`,{
+      method:'DELETE',
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+
   useEffect(() => {
     getGroceries();
   }, []);
@@ -59,7 +69,7 @@ function ShoppingList() {
               <p className="col qty">
                 <QuantityPicker min={1} smooth width="8rem" />
               </p>
-              <button type="button" className="bin col">
+              <button onClick={() => {deleteGrocery(item._id); }} type="button" className="bin col">
                 <FaTrash />
               </button>
             </div>
