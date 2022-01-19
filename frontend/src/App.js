@@ -14,6 +14,7 @@ import AddItem from './components/AddItem';
 import Calendar from './components/Calendar';
 import Donate from './components/Donate';
 import AddShoppingItem from './components/AddShoppingItem';
+import Recipe from './components/Recipe';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
               <Route exact path='/recipes' element={<Recipes/>} />
+              <Route exact path='/recipe/:id' element={<Recipe/>} />
               <Route exact path='/categoryItems' element={<CategoryItems/>} />
               <Route exact path='/shoppingList' element={<ShoppingList/>} />
               <Route exact path='/addItem' element={<AddItem/>} />

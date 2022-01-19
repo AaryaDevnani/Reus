@@ -5,6 +5,7 @@ import AddItem from './AddItem';
 import { Button, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { QuantityPicker } from 'react-qty-picker';
 import {
+  addDonation,
   addItemsAction,
   deleteItemsAction,
   updateItemQuantityAction
@@ -109,14 +110,20 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
     }
   };
 
+  const handleOnDonate = (item) => {
+    setItems(items.filter((i) => i._id !== item._id));
+    dispatch(deleteItemsAction(item._id));
+    dispatch(addDonation({ _id: item._id, name: item.name }));
+  };
+
   return (
     <div className="item-biffer">
       <div className="btn-cards">
         
         <div className="itemList">
-          <div className='bothNames'>
-          <p className="itms"> Items </p>
-          <p className="itms"> Use of its By-product </p>
+          <div className="bothNames">
+            <p className="itms"> Item </p>
+            <p className="itms"> By-product </p>
           </div>
           {currentItems.length === 0 && (
             <div className="noCatItems">
@@ -205,7 +212,14 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                     >
                       Delete
                     </button>
-                    <button className="donatBtn">Donate</button>
+                    <button
+                      className="donatBtn"
+                      onClick={() => {
+                        handleOnDonate(item);
+                      }}
+                    >
+                      Donate
+                    </button>
                   </div>
                 </div>
               </div>
@@ -214,10 +228,18 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                   item.byProduct.map((bp) => (
                     <div className="batItems" key={item._id}>
                       <div className="byProductData">
-                        <h3 className="itemName" ><b>{bp.itemByproduct} </b></h3>
+                        <h3 className="itemName">
+                          <b>{bp.itemByproduct} </b>
+                        </h3>
                         <p className="byProdInfo">{bp.use}</p>
                         {bp.videoURL && (
-                          <p className="byProdVid"><u><a href={bp.videoURL} target="_blank">Watch video for more Info!</a></u></p>
+                          <p className="byProdVid">
+                            <u>
+                              <a href={bp.videoURL} target="_blank">
+                                Watch video for more Info!
+                              </a>
+                            </u>
+                          </p>
                         )}
                       </div>
                     </div>
