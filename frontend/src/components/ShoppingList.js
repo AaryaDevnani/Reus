@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import './styles/ShoppingList.css';
 import { QuantityPicker } from 'react-qty-picker';
 import { FaTrash } from 'react-icons/fa';
@@ -99,15 +99,14 @@ function ShoppingList() {
 
   return (
     <div className="dashboardPage">
-      <p className="intro">Your Grocery List</p>
+      <p className="intro"><b>Your Grocery List </b></p>
       <>
-        <Button
-          className="butt"
-          variant="primary"
+        <button
+          className="buttn"
           onClick={() => setModalShow(true)}
         >
           Add Item
-        </Button>
+        </button>
 
         <AddShoppingItem
           show={modalShow}
@@ -117,18 +116,20 @@ function ShoppingList() {
           onHide={() => setModalShow(false)}
         />
       </>
-      <div className="list-items">
-        <div>
-          <div className="list-item1">
-            <h3 className="item1">Item</h3>
-            <h3 className="quantity">Quantity</h3>
-            <h3 className="remove">Remove</h3>
-          </div>
-
+      
+      <Table striped hover >
+        <thead>
+          <tr>
+            <th className='itemName2'> Item </th>
+            <th className='itemQty2'>Quantity</th>
+            <th className='itemRemove2'>Remove</th>
+          </tr>
+          </thead>
+          <tbody>
           {items.map((item) => (
-            <div className="row list-item">
-              <h3 className="col name">{item.name}</h3>
-              <p className="col qty">
+           <tr>
+              <td className='itemName1' ><h3 >{item.name}</h3></td>
+              <td ><p className='itemQty1'>
                 <QuantityPicker
                   min={1}
                   value={item.quantity}
@@ -143,8 +144,10 @@ function ShoppingList() {
                   smooth
                   width="8rem"
                 />
-              </p>
-              <button
+                </p>
+              </td>
+              
+              <td className='itemRemove1' ><button
                 onClick={() => {
                   deleteGrocery(item._id);
                 }}
@@ -152,11 +155,12 @@ function ShoppingList() {
                 className="bin col"
               >
                 <FaTrash />
-              </button>
-            </div>
+              </button></td>
+              </tr>
           ))}
-        </div>
-      </div>
+          </tbody>
+        
+      </Table>
     </div>
   );
 }

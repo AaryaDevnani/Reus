@@ -50,3 +50,37 @@
   margin-top: -1.7%;
   margin-left: 40%;
 }
+.buttn{
+  width: 150px;
+  color: rgb(255, 255, 255);
+  margin-top: 20px;
+  font-size: 18px;
+  background-color: #114d4d;
+  padding: 5px 10px;
+  border-radius: 25px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+
+}
+.buttn:hover{
+  color: #cff2ec;
+  background-color: #216363;
+}
+.itemName2{
+  width: 400px;
+}
+.itemQty2{
+  width: 200px;
+}
+.itemRemove2{
+  width: 100px;
+}
+td.itemName1 {
+  padding-top: 20px;
+} 
+ p.itemQty1 {
+  display: block;
+  width:  fit-content;
+  margin: 0 auto;
+}

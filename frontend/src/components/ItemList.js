@@ -119,30 +119,11 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
   return (
     <div className="item-biffer">
       <div className="btn-cards">
-        {/* <div className="addBtn">
-        <Button
-          className="modal-btn"
-          variant="primary"
-          onClick={() => setModalShow(true)}
-        >
-          Add Item
-        </Button>
-        <AddItem
-          show={modalShow}
-          itemInput={itemInput}
-          handleOnItemInputChange={handleOnItemInputChange}
-          handleAddItemSubmit={handleAddItemSubmit}
-          onHide={() => setModalShow(false)}
-        />
-        <Link to="/shoppingList" className="btn btn-primary">
-          Grocery List
-        </Link>
-      </div> */}
-
+        
         <div className="itemList">
           <div className="bothNames">
-            <p className="itms"> Items </p>
-            <p className="itms"> Its By-product </p>
+            <p className="itms"> Item </p>
+            <p className="itms"> By-product </p>
           </div>
           {currentItems.length === 0 && (
             <div className="noCatItems">
@@ -181,7 +162,7 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                         </b>
                       </span>
 
-                      <QuantityPicker
+                      <QuantityPicker className='notOn'
                         value={item.quantity}
                         onChange={(value) => {
                           dispatch(
@@ -267,6 +248,27 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
             </div>
           ))}
         </div>
+      </div>
+      <div>
+            <div className="addBtn">
+        <button
+          className="bottn"
+          
+          onClick={() => setModalShow(true)}
+        >
+          Add Item
+        </button>
+        <AddItem
+          show={modalShow}
+          itemInput={itemInput}
+          handleOnItemInputChange={handleOnItemInputChange}
+          handleAddItemSubmit={handleAddItemSubmit}
+          onHide={() => setModalShow(false)}
+        />
+        <Link to="/shoppingList" className="bottn">
+          Grocery List
+        </Link>
+      </div>
       </div>
     </div>
   );
