@@ -36,7 +36,7 @@ function Recipe() {
   return (
        
         <div className='oneRecipe'>
-              <div className='recipeNameImg'>\
+              <div className='recipeNameImg'>
                   <img className='reciImg'  src={ings.image} alt="" />
                    <p  className='reciName'>{ings.label}</p>
               </div>
