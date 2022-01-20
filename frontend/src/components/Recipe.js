@@ -33,38 +33,30 @@ function Recipe() {
   }, []);
 
   
-  return (<div>
-    <Container>
-                <Row>
-                        <Col sm={2}>
-                                <img className='recipeI' src={ings.image} alt="" />
-                        </Col>
-                        <Col sm={6}>
-                                <p className='name'>{ings.label}</p>
-                        </Col>   
-                </Row>
-        </Container>
-        <Row>
-        <Col sm={6}>
-        <div>
-          <p className='ingredients'>Ingredients: </p>
-        </div>
-        <div>
-        <ul className='ingText'>
+  return (
+       
+        <div className='oneRecipe'>
+              <div className='recipeNameImg'>\
+                  <img className='reciImg'  src={ings.image} alt="" />
+                   <p  className='reciName'>{ings.label}</p>
+              </div>
+              <h2 className='recipeIngred'>Ingredients</h2>
+              <hr className='recipeHr' />
+              <div className='recIngreUl'>
+                <ul >
                    {ings.ingredients && ings.ingredients.map((i)=>(
                       <li>{i.text}</li>
                   ))
                   } 
                 </ul>
+              </div>
+              <hr className='recipeHr' />
+              <div className='j'>
+                <a href={ings.url} target = "_blank"className='steps'><u>View Steps Here </u></a>
+              </div>
         </div>
-        </Col>
-        <Col sm={6}>
-        <div className='j'>
-          <a href={ings.url} target = "_blank"className='steps'>View Steps Here</a>
-        </div>
-        </Col>
-        </Row>
-        </div>
+
+
   )};
 
 export default Recipe;

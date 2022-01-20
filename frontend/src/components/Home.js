@@ -29,10 +29,10 @@ function Home() {
         <div className='ban' >
                 <Row>
                 <Col sm={6}>
-                        <h5 className='text'>World Hunger is on the rise; yet, an estimated 1/3 of all food 
+                        <p className='text secondBan'>World Hunger is on the rise; yet, an estimated 1/3 of all food 
                         produced globally is lost or goes to waste. We all have a part to play in reducing 
                         food loss and waste, not only for the sake of the food but for the resources that go into it.
-                        </h5>
+                        </p>
                         </Col>
                         <Col sm={6}>
                                 <img className='image' src={home_image} alt="" />
@@ -48,11 +48,11 @@ function Home() {
                                 <img className='image2' src={home_img5} alt="" />
                         </Col>
                         <Col sm={6}>
-                                <h5 className='text2'> As per the Food Waste Index Report (2021) of United Nations Environment Programme, 
+                                <p className='text2 thirdBan'> As per the Food Waste Index Report (2021) of United Nations Environment Programme, 
                                 a staggering 50 kg of food is thrown away per person every year in Indian homes. 
                                 This excess food waste usually ends up in landfills, creating potent greenhouse gases 
                                 which have dire environmental implications. Meanwhile, we continue to be greenwashed into 
-                                amassing more “organic” and “sustainable” products than we really need.</h5>
+                                amassing more “organic” and “sustainable” products than we really need.</p>
                         </Col>
 
                         
@@ -60,7 +60,6 @@ function Home() {
         </Container>
 
 
-        
         <p className='heh'>Here's how you can make a difference!</p>
 
         <Container className='text3'>
