@@ -118,14 +118,14 @@ function ShoppingList() {
       </>
       
       <Table striped hover >
-        <thead>
+        <thead className='shopThead'>
           <tr>
             <th className='itemName2'> Item </th>
             <th className='itemQty2'>Quantity</th>
             <th className='itemRemove2'>Remove</th>
           </tr>
           </thead>
-          <tbody>
+          <tbody className='shopTbody'>
           {items.map((item) => (
            <tr>
               <td className='itemName1' ><h3 >{item.name}</h3></td>

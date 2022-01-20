@@ -1,6 +1,7 @@
 .categoryFilter{
     display: flex;
     width: 100%;
+    margin-bottom: 20px;
 }
 .itemData{
     display: flex;
@@ -252,6 +253,9 @@ button.modal-btn.butn.btn-primary :hover {
 .bottn:hover{
     color: #cff2ec;
     background-color: #216363;
+}
+.card-buttons {
+    margin-top: 25px;
 }
 @media only screen and (max-width: 600px){
     .categoryFilter{
