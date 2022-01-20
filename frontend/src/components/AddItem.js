@@ -64,7 +64,7 @@ const AddItem = (props) => {
             <div className="form-contro">
               <label className="label">
                 Category:&nbsp;&nbsp;
-                <select name="category" onChange={handleOnItemInputChange}>
+                <select name="category" onChange={handleOnItemInputChange} value={itemInput.category}>
                   <option selected value="Vegetables">
                     Vegetables
                   </option>

@@ -47,7 +47,7 @@ router.post("/", async (req, res) => {
   const item = new Item({
     name,
     userId,
-    expiryDate,
+    expiryDate: new Date(expiryDate),
     quantity,
     category,
     calories,
@@ -98,38 +98,20 @@ router.put("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   const userId = req.params.id;
-  const { type } = req.body
   const item = await Item.findById(userId);
   const groceryItem = new GroceryItem({
     name: item.name,
     userId: item.userId,
     quantity: 1
   });
-  const donationItem = new donation({
-    name:item.name,
-    userId,
-    expiryDate:item.expiryDate,
-    quantity:item.quantity,
-    category:item.category,
-    calories:item.calories,
-    imageURL:item.imageURL,
-    canServe:item.canServe,
-    booked:item.booked,
-    bookedBy:item.bookedBy,
-  })
   if (!item) return res.status(202).json({ error: "" });
   try {
     await Item.deleteOne({
-      _id: userId
+      _id: item._id
     });
-    if(type==='grocery'){
       await groceryItem.save();
-    }
-    else if(type==='donation'){
-      await donationItem.save()
-    }
     
-    await Notification.deleteMany({ userId }, { multi: true });
+    await Notification.deleteMany({ itemId: item._id }, { multi: true });
     res.status(202).json({ error: "" });
   } catch (error) {
     res.status(400).json({ error });
