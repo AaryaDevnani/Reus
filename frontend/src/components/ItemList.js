@@ -183,22 +183,7 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                   </div>
                 </div>
                 <div className="byProd-butn">
-                  {/* {item.byProduct &&
-              item.byProduct.map((bp) => (
-                <>
-                  <OverlayTrigger 
-                delay={{ hide: 450, show: 300 }}
-                overlay={(props) => (
-                  <Tooltip {...props} className='toolTipText' >
-                     Details: {bp.use}
-                  </Tooltip>
-                )}
-                placement="bottom"
-                ><p className='byproductText'><u>  Use of By-Product: {bp.itemByproduct}</u></p>
-              </OverlayTrigger> 
-              
-                </>
-              ))} */}
+                 
 
                   <div className="card-buttons">
                     <button

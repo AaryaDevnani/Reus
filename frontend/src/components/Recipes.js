@@ -66,7 +66,8 @@ function Recipes() {
       const data = await response.json();
       setRecipes(data.hits);
     } catch (error) {
-      alert({ error });
+      console.log({error});
+      alert( error.message);
     }
   };
 
@@ -86,7 +87,10 @@ function Recipes() {
   }, [searchFinal]);
   return (
     <div className="recipePage container">
-      <div className="input-group">
+      
+      <div className="row">
+        <div className="col-5 ingre-by">
+        <div className="input-group">
         <div className="form-outline">
           <input
             type="search"
@@ -95,22 +99,18 @@ function Recipes() {
             value={search}
             onChange={handleOnChange}
           />
-          <label className="form-label" >
-            Search
-          </label>
+          
         </div>
         <div className="search-btn">
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary search"
             onClick={handleOnClick}
           >
             <FaSearch />
           </button>
         </div>
       </div>
-      <div className="row">
-        <div className="col-5">
           <p className='ingr' >Ingredients</p>
           <div className="invItems">
             <div className="btns">
@@ -130,7 +130,7 @@ function Recipes() {
           <Recipebyproduct ingredients={ingredients} byproducts={byproducts} />
           </div>
         </div>
-        <div className=" col-6 listItems">
+        <div className="col-5 listItems recip-list">
           <p className='recp' >Recipes</p>
           {recipes.map(({ recipe }) => (
             <div className="item">
