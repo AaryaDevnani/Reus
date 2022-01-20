@@ -16,21 +16,26 @@ function Donate() {
 
   return (
     <div className="donatePage">
-      <Alert
-        variant="success"
-        style={{ display: show ? 'block' : 'none' }}
-        dismissible
-        onClose={() => {
-          setShow(false);
-          navigate('/categoryItems');
-        }}
-      >
-        <Alert.Heading>Thank you for donating your food!</Alert.Heading>
-        <hr />
-        <small className="mb-0">
-          Your initiative to prevent food wastage is appreciated!
-        </small>
-      </Alert>
+      <div className="wrapper">
+        <Alert
+          variant="success"
+          style={{ display: show ? 'block' : 'none' }}
+          dismissible
+          onClose={() => {
+            setShow(false);
+            navigate('/categoryItems');
+          }}
+          className="col-md-6 inner"
+        >
+          <Alert.Heading>Thank you for donating your food!</Alert.Heading>
+          <hr />
+          <small className="mb-0">
+            Someone from our team will collect the food items from your doorstep
+            and distribute them to the needy in association with NGO's like Feed
+            From Far and Khaana Chahiye Foundation
+          </small>
+        </Alert>
+      </div>
       <div className="donateListFlex">
         <div className="donateList">
           <p className="intro">
