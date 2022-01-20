@@ -257,6 +257,22 @@ button.modal-btn.butn.btn-primary :hover {
 .card-buttons {
     margin-top: 25px;
 }
+.redDate{
+    color:#f12f2f;
+    font-size: 17px;
+}
+.orangeDate{
+    color:rgb(243, 146, 55);
+    font-size: 17px;
+}
+.yelloyDate{
+    color: rgba(241, 241, 103, 0.959);
+    font-size: 17px;
+}
+.greenDate{
+    color: rgb(26, 161, 71);
+    font-size: 17px;
+}
 @media only screen and (max-width: 600px){
     .categoryFilter{
         display: block;

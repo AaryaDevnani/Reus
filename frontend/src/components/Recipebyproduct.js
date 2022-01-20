@@ -20,8 +20,8 @@ function Recipebyproduct({ ingredients, byproducts }) {
       {itemsWithByProducts.map((items) =>
         items.byProducts.map((bp) => (
           <div>
-            <div className="ing">Ingredient: {bp.itemName}</div>
-            <div className="ing2">Byproduct: {bp.itemByproduct}</div>
+            <div className="ing"><b>Ingredient: {bp.itemName}</b></div>
+            <div className="ing2"><b>Byproduct: {bp.itemByproduct}</b></div>
             <div className="ing3">Use: {bp.use}</div>
 
             {bp.videoURL ? (
