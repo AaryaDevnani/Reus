@@ -262,8 +262,8 @@ button.modal-btn.butn.btn-primary :hover {
     color:rgb(243, 146, 55);
     font-size: 17px;
 }
-.yelloyDate{
-    color: rgba(241, 241, 103, 0.959);
+.yellowDate{
+    color: rgb(212, 203, 66);
     font-size: 17px;
 }
 .greenDate{
