@@ -13,7 +13,7 @@ import {
 import { Link, NavLink } from 'react-router-dom';
 
 function ItemList({ items, setItems, selectedCategory, byProducts }) {
-  const oneDayTime = 24 * 60 * 60 * 1000
+  const oneDayTime = 24 * 60 * 60 * 1000;
   const dispatch = useDispatch();
 
   // modal states
@@ -116,18 +116,27 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
   };
 
   const getExpiryClassName = (expiryDate) => {
-    let curDate = Date.now()
-    let diff = (new Date(expiryDate).getTime() - curDate) / oneDayTime
+    let curDate = Date.now();
+    let diff = (new Date(expiryDate).getTime() - curDate) / oneDayTime;
     if (diff < 3) {
-      return "redDate"
+      return 'redDate';
     } else if (diff > 3 && diff < 14) {
-      return "orangeDate"
+      return 'orangeDate';
     } else if (diff > 14 && diff < 30) {
-      return "yellowDate"
+      return 'yellowDate';
     } else {
-      return "greenDate"
+      return 'greenDate';
     }
-  }
+  };
+
+  const isExpired = (expiryDate) => {
+    let curDate = Date.now();
+    let diff = (new Date(expiryDate).getTime() - curDate) / oneDayTime;
+    if (diff < 0) {
+      return true;
+    }
+    return false;
+  };
 
   return (
     <div className="item-biffer">
@@ -163,7 +172,13 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                   </div>
                   <div>
                     <h3 className="itemName">
-                      <b> {item.name}</b>
+                      <b>
+                        {' '}
+                        {item.name}{' '}
+                        {isExpired(item.expiryDate) && (
+                          <small className="expired">(Expired)</small>
+                        )}
+                      </b>
                     </h3>
                     <p className="itemInfo">
                       <span className={getExpiryClassName(item.expiryDate)}>
@@ -208,14 +223,16 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                     >
                       Delete
                     </button>
-                    <button
-                      className="donatBtn"
-                      onClick={() => {
-                        handleOnDonate(item);
-                      }}
-                    >
-                      Donate
-                    </button>
+                    {!isExpired(item.expiryDate) && (
+                      <button
+                        className="donatBtn"
+                        onClick={() => {
+                          handleOnDonate(item);
+                        }}
+                      >
+                        Donate
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
