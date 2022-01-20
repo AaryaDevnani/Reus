@@ -16,7 +16,7 @@
 
 .recipeNameImg{
     display: flex;
-    
+    margin-bottom: 20px;
 }
 
 .reciImg{
@@ -38,6 +38,7 @@
 .recipeIngred{
     color: black;
     font-size: 30px;
+    margin-top: 10px;
 }
 .recipeHr{
     color: black;
@@ -62,4 +63,10 @@ a.steps {
 }
 a.steps:hover {
     color: rgb(30, 133, 81);
+}
+.recipeRecipe{
+    color: black;
+    font-size: 40px;
+    margin-top: 20px;
+    font-weight: 700;
 }

@@ -36,16 +36,18 @@ function Recipe() {
   return (
        
         <div className='oneRecipe'>
+              <h2 className='recipeRecipe'>Recipe</h2>
+              <hr className='recipeHr' />
               <div className='recipeNameImg'>
                   <img className='reciImg'  src={ings.image} alt="" />
                    <p  className='reciName'>{ings.label}</p>
               </div>
-              <h2 className='recipeIngred'>Ingredients</h2>
               <hr className='recipeHr' />
+              <h2 className='recipeIngred'>Ingredients</h2>
               <div className='recIngreUl'>
                 <ul >
                    {ings.ingredients && ings.ingredients.map((i)=>(
-                      <li>{i.text}</li>
+                      <li> -> {i.text}</li>
                   ))
                   } 
                 </ul>
