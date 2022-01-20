@@ -3,16 +3,14 @@ const Notification = require("../Models/Notification");
 const oneDayTime = 24 * 60 * 60 * 100;
 
 module.exports = function async(expiryDate, userId, itemId) {
-  const notiDates = [
-    new Date(expiryDate) - 1 * oneDayTime,
-    new Date(expiryDate) - 2 * oneDayTime,
-    new Date(expiryDate) - 3 * oneDayTime,
-    new Date(expiryDate) - 7 * oneDayTime,
-    new Date(expiryDate) - 14 * oneDayTime,
-    new Date(expiryDate) - 30 * oneDayTime
-  ];
+  const times = [1, 2, 3, 7, 14, 30];
 
-  notiDates.map(async date => {
+  times.map(async time => {
+    let date = new Date(expiryDate);
+    let pastDate = date.getDate() - time
+    date.setDate(pastDate)
+    
+
     const notification = new Notification({
       userId,
       itemId,

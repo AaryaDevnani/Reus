@@ -22,7 +22,7 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
     name: '',
     expiryDate: Date.now(),
     quantity: 0,
-    category: '',
+    category: 'Vegetables',
     imageURL: '',
     userId
   });
@@ -95,9 +95,6 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
-      },
-      body: {
-        type: 'grocery'
       }
     };
     const response = await fetch(`/api/items/${itemId}`, deleteItemOptions);

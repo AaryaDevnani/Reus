@@ -52,6 +52,7 @@ const checkExpirationsDaily = async () => {
 };
 
 checkExpirations();
+checkExpirationsDaily()
 
 //set port
 app.listen(PORT, () => console.log("Server running on port", PORT));
