@@ -74,7 +74,7 @@
   width: 200px;
 }
 .itemRemove2{
-  width: 100px;
+  width: 150px;
 }
 td.itemName1 {
   padding-top: 20px;
@@ -83,4 +83,10 @@ td.itemName1 {
   display: block;
   width:  fit-content;
   margin: 0 auto;
+}
+.shopThead{
+  background-color: #72d1b0;
+}
+.shopTbody{
+  background-color: #d8f1e9;
 }
