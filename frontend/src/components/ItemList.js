@@ -13,6 +13,7 @@ import {
 import { Link, NavLink } from 'react-router-dom';
 
 function ItemList({ items, setItems, selectedCategory, byProducts }) {
+  const oneDayTime = 24 * 60 * 60 * 1000
   const dispatch = useDispatch();
 
   // modal states
@@ -114,6 +115,20 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
     dispatch(addDonation({ _id: item._id, name: item.name }));
   };
 
+  const getExpiryClassName = (expiryDate) => {
+    let curDate = Date.now()
+    let diff = (new Date(expiryDate).getTime() - curDate) / oneDayTime
+    if (diff < 3) {
+      return "redDate"
+    } else if (diff > 3 && diff < 14) {
+      return "orangeDate"
+    } else if (diff > 14 && diff < 30) {
+      return "yellowDate"
+    } else {
+      return "greenDate"
+    }
+  }
+
   return (
     <div className="item-biffer">
       <div className="btn-cards">
@@ -151,7 +166,7 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
                       <b> {item.name}</b>
                     </h3>
                     <p className="itemInfo">
-                      <span className="expDate">
+                      <span className={getExpiryClassName(item.expiryDate)}>
                         <b>
                           Exp. Date : {new Date(item.expiryDate).getUTCDate()}/
                           {new Date(item.expiryDate).getUTCMonth() + 1}/

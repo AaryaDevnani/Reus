@@ -1,6 +1,6 @@
 const Notification = require("../Models/Notification");
 
-const oneDayTime = 24 * 60 * 60 * 100;
+const oneDayTime = 24 * 60 * 60 * 1000;
 
 module.exports = function async(expiryDate, userId, itemId) {
   const times = [1, 2, 3, 7, 14, 30];

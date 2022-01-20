@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 // DEV / PROD
 const env = "";
 const PORT = 4000;
-const oneDayTime = 24 * 60 * 60 * 100;
+const oneDayTime = 24 * 60 * 60 * 1000;
 
 //connect to DB
 if (env == "DEV") {
