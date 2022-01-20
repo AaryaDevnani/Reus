@@ -61,6 +61,14 @@ function CategoryItem() {
       }
     });
     const data = await response.json();
+    data.items.sort(function(a, b) {
+      let keyA = new Date(a.expiryDate);
+      let keyB = new Date(b.expiryDate);
+      // Compare the 2 dates
+      if (keyA < keyB) return -1;
+      if (keyA > keyB) return 1;
+      return 0;
+    });
     if (!data.error === '') return data.error;
     else {
       setItems(data.items);
