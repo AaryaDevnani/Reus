@@ -75,7 +75,8 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
         expiryDate: Date.now(),
         quantity: 0,
         category: '',
-        imageURL: ''
+        imageURL: '',
+        userId
       });
       dispatch(addItemsAction(data.newItem));
       setItems([...items, data.newItem]);
