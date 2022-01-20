@@ -270,6 +270,40 @@ button.modal-btn.butn.btn-primary :hover {
     color: rgb(26, 161, 71);
     font-size: 17px;
 }
+.redDa{
+    color:#f12f2f;
+    font-size: 15px;
+}
+.orangeDa{
+    color:rgb(243, 146, 55);
+    font-size: 15px;
+}
+.yellowDa{
+    color: rgb(212, 203, 66);
+    font-size: 15px;
+}
+.greenDa{
+    color: rgb(26, 161, 71);
+    font-size: 15px;
+}
+.colorInfo{
+    color: black !important;
+    min-height:50px;
+    margin: 20px 10px;
+  padding: 10px 15px;
+  border-radius: 20px;
+background: #cff2e6;
+           max-width: 450px;
+           height: fit-content;
+  width: 220px;
+  margin-left: 0px;
+  text-align: left;
+}
+.colInfo{
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
 @media only screen and (max-width: 600px){
     .categoryFilter{
         display: block;

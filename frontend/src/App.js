@@ -27,7 +27,6 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/logout" element={<Logout />} />
             <Route exact path="/register" element={<Register />} />
-            <Route exact path="/dashboard" element={<Dashboard />} />
               <Route exact path='/recipes' element={<Recipes/>} />
               <Route exact path='/recipe/:id' element={<Recipe/>} />
               <Route exact path='/categoryItems' element={<CategoryItems/>} />

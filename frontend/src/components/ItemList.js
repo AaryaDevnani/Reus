@@ -260,6 +260,12 @@ function ItemList({ items, setItems, selectedCategory, byProducts }) {
           <Link to="/shoppingList" className="bottn">
             Grocery List
           </Link>
+          <div className='colorInfo'>
+            <p className='colInfo'><span className='redDa'>Red </span> - Expired/Expiry within 3 days</p>
+            <p className='colInfo'><span className='orangeDa'>Orange </span> - Expiry within 2 weeks</p>
+            <p className='colInfo'><span className='yellowDa'>Yellow </span> - Expiry within a month</p>
+            <p className='colInfo'><span className='greenDa'>Green </span> - Expiry beyond a month</p>
+          </div>
         </div>
       </div>
     </div>
