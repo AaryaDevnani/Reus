@@ -63,7 +63,7 @@
 
 .categoryList {
   float: left;
-  margin-left: 40px !important;
+  margin-left: 20px !important;
   padding-left: 3%;
   margin-top: 20px;
   width: 20%;
@@ -288,7 +288,7 @@ button.modal-btn.butn.btn-primary :hover {
 background: #cff2e6;
            max-width: 450px;
            height: fit-content;
-  width: 220px;
+  width: 180px;
   margin-left: 0px;
   text-align: left;
 }
