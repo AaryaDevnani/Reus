@@ -1,0 +1,2 @@
+REACT_APP_API_APP_ID=your_api_app_id
+REACT_APP_API_APP_KEY=your_api_app_key
