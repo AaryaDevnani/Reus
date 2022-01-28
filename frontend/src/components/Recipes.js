@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 
 function Recipes() {
   const { userId } = useSelector((state) => state.auth);
-  const [search, setSearch] = useState('Broccoli');
-  const [searchFinal, setSearchFinal] = useState('Broccoli');
+  const [search, setSearch] = useState('Chicken');
+  const [searchFinal, setSearchFinal] = useState('Chicken');
   const [recipes, setRecipes] = useState([]);
   const [byproducts, setByproducts] = useState([]);
   const [ingredients, setIngredients] = useState([]);
-  const [adding, setAdding] = useState(['Broccoli']);
+  const [adding, setAdding] = useState(['Chicken']);
   const getIngredients = async () => {
     const response = await fetch(`/api/items`, {
       method: 'GET',

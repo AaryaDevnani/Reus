@@ -8,8 +8,8 @@ function Recipe() {
   const recipeId = useParams()
   const [ings,setIngs] = useState([])
   const getRecipe = async () => {
-    const appID = 'a670aefe';
-    const app_key = '2062231e1e23e9cfc408fa3516285253d8';
+    const appID = process.env.REACT_APP_API_APP_ID;
+    const app_key = process.env.REACT_APP_API_APP_KEY;
     const apiURL = `https://api.edamam.com/api/recipes/v2/${recipeId.id}?type=public&app_id=${appID}&app_key=%${app_key}`;
 
     try {

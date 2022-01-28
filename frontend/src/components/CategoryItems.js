@@ -27,7 +27,7 @@ function CategoryItem() {
   const [byProducts, setByProducts] = useState([]);
 
   const [selectedCategoryId, setSelectedCategoryId] = useState(
-    categories[0].id
+    categories[1].id
   );
 
   const onSelectCategory = (id) => {
