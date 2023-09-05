@@ -7,8 +7,7 @@ A food wastage and management web app that tracks inventory and notifies the use
 <p align = "center">
  Project Demo: 
 </p>
-[<img src="https://i.ytimg.com/vi/Hc79sDi3f0U/maxresdefault.jpg" width="50%">](https://www.youtube.com/watch?v=Hc79sDi3f0U "Now in Android: 55")
-<p align="center">
+
  <img src="./images/Reus.png">
 </p>
 
