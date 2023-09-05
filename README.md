@@ -3,6 +3,11 @@
 <p align="center">
 A food wastage and management web app that tracks inventory and notifies the user on expiry of products like fruits and vegetables. It also suggests recipes based on items in the inventory. 
 </p>
+
+<p align = "center">
+ Project Demo: 
+</p>
+ https://drive.google.com/file/d/18VRBd37YY6IctTqDD1vqdrnzY_aZt_lV/view?usp=sharing
 <p align="center">
  <img src="./images/Reus.png">
 </p>
